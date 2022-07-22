@@ -7,6 +7,9 @@ const InfoUser = mongoose.Schema({
   blogID: { type: String },
   dob: { type: Date, default: null },
   story: { type: String },
+  following: { type: Number, default: 0 },
+  followers: { type: Number, default: 0 },
+  likes: { type: Number, default: 0 },
   uid: { type: Number },
 });
 
