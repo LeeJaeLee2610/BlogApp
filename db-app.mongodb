@@ -11,8 +11,9 @@
 // db.createCollection(collection);
 
 use('blogapp')
+db.createCollection('users')
 
-db.createCollection('infouser')
+// db.createCollection('infouser')
 
-db.users.deleteOne({username: "emcuong"})
-db.users.deleteOne({username: "ducbui"})
+// db.users.deleteOne({username: "emcuong"})
+// db.users.deleteOne({username: "ducbui"})

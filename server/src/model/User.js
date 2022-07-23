@@ -7,7 +7,8 @@ const User = mongoose.Schema(
     username: { type: String },
     password: { type: String },
     createdAt: { type: Date, default: Date.now },
-    follow: { any: Array },
+    following: [],
+    followers: [],
   },
   { _id: false }
 );
