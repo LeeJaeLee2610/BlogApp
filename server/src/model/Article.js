@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const AutoIncre = require("mongoose-sequence")(mongoose);
 
 const Article = mongoose.Schema({
+  // id bai viet
   _id: { type: Number },
   image_path: { type: String, default: none },
   title: { type: String },
@@ -22,6 +23,8 @@ const Article = mongoose.Schema({
       },
     ],
   },
+  created: { type: Date, default: new Date(Date.now()) },
+  // id user cua bai viet
   uid: { type: Number },
 });
 

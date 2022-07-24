@@ -41,19 +41,24 @@ app.use(
 //   res.send(req.session);
 // });
 
-app.get("/setCookie", (req, res) => {
-  res.cookie("username", "emcuong", {
-    expires: new Date(Date.now() + 100000),
-    httpOnly: false,
-    secure: false,
-  });
-  res.send("set Cookies");
-});
+// app.get("/setCookie", (req, res) => {
+//   res.cookie("username", "emcuong", {
+//     expires: new Date(Date.now() + 100000),
+//     httpOnly: false,
+//     secure: false,
+//   });
+//   res.send("set Cookies");
+// });
 
-app.get("/getCookie", (req, res) => {
-  const tmp = req.cookies;
-  res.send(tmp);
-});
+// app.get("/getCookie", (req, res) => {
+//   const tmp = req.cookies;
+//   res.send(tmp);
+// });
+
+// app.get("/deleteCookie", (req, res) => {
+//   res.clearCookie("username");
+//   res.send("delete OK");
+// });
 
 router(app);
 
