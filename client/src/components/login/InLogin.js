@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+import TooltipInbox from "../Tooltip/TooltipInbox";
+import TooltipMessage from "../Tooltip/TooltipMessage";
 
 const InLogin = () => {
   return (
@@ -20,7 +22,19 @@ const InLogin = () => {
         </svg>
         <span className="text-[#161823] ml-1">Upload</span>
       </div>
-      
+      <div className="ml-[16px]">
+        <TooltipMessage>Messages</TooltipMessage>
+      </div>
+      <div className="ml-[16px]">
+        <TooltipInbox>Inbox</TooltipInbox>
+      </div>
+      <div className="flex items-center justify-center ml-[16px] w-[32px] h-[32px]">
+        <img
+          src="./images/1658842290314-282273672_1676657146045001_5848990282228639430_n.jpg"
+          alt=""
+          className="object-cover w-full h-full rounded-full"
+        />
+      </div>
     </Fragment>
   );
 };
