@@ -1,4 +1,5 @@
 const User = require("../model/User");
+const InfoUser = require("../model/InfoUser");
 
 class UserController {
   // doGet

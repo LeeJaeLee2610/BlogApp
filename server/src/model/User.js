@@ -9,6 +9,7 @@ const User = mongoose.Schema(
     createdAt: { type: Date, default: Date.now },
     following: [],
     followers: [],
+    likes: [],
   },
   { _id: false }
 );

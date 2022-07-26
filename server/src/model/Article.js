@@ -7,22 +7,14 @@ const Article = mongoose.Schema({
   image_path: { type: String, default: none },
   title: { type: String },
   hashtag: { type: String },
-  cmts: {
-    any: [
-      {
-        uid: { type: Number },
-        avatar_path: { type: String },
-        blogID: { type: String },
-      },
-    ],
-  },
-  likes: {
-    any: [
-      {
-        uid: { type: Number },
-      },
-    ],
-  },
+  cmts: [
+    {
+      uid: { type: Number },
+      avatar_path: { type: String },
+      blogID: { type: String },
+    },
+  ],
+  likes: [],
   created: { type: Date, default: new Date(Date.now()) },
   // id user cua bai viet
   uid: { type: Number },
