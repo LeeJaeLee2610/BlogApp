@@ -20,6 +20,7 @@ const InLogin = () => {
         </svg>
         <span className="text-[#161823] ml-1">Upload</span>
       </div>
+      
     </Fragment>
   );
 };
