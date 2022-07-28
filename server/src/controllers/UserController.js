@@ -18,9 +18,13 @@ class UserController {
   // doPost
   async addUser(req, res) {
     try {
-      var user = new User(req.body);
-      await user.save();
-      res.send(req.body);
+      var user = new User();
+      const tmp = req.body;
+      // user.username = "emcuong";
+      // user.password = "emcuong123";
+      // await user.save();
+      console.log(tmp);
+      res.send(tmp);
       //   console.log(req.body);
     } catch (error) {
       console.log(error);

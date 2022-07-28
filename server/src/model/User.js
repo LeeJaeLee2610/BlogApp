@@ -7,9 +7,9 @@ const User = mongoose.Schema(
     username: { type: String },
     password: { type: String },
     createdAt: { type: Date, default: Date.now },
-    following: [],
-    followers: [],
-    likes: [],
+    following: { type: [], default: null },
+    followers: { type: [], default: null },
+    likes: { type: [], default: null },
   },
   { _id: false }
 );

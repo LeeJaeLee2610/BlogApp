@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import DropdownUser from "../dropdown/DropdownUser";
-import TooltipInbox from "../tooltip/TooltipInbox";
-import TooltipMessage from "../tooltip/TooltipMessage";
+import InboxTooltip from "../tooltip/InboxTooltip";
+import MessageTooltip from "../tooltip/MessageTooltip";
 
 const InLogin = () => {
   return (
@@ -24,10 +24,10 @@ const InLogin = () => {
         <span className="text-[#161823] ml-1">Upload</span>
       </div>
       <div className="ml-[16px]">
-        <TooltipMessage>Messages</TooltipMessage>
+        <MessageTooltip>Messages</MessageTooltip>
       </div>
       <div className="ml-[16px]">
-        <TooltipInbox>Inbox</TooltipInbox>
+        <InboxTooltip>Inbox</InboxTooltip>
       </div>
       <DropdownUser></DropdownUser>
     </Fragment>

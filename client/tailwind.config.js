@@ -11,6 +11,7 @@ module.exports = {
       su: ["16px", "24px"],
       li: ["16px", "24px"],
       logo: ["28px", "36px"],
+      login: ["36px", "44px"],
     },
     extend: {},
   },

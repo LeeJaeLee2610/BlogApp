@@ -1,6 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
+import LoginModal from "../modal/LoginModal";
 
 const Unlogin = () => {
+  const [showLogin, setShowLogin] = useState(false);
   return (
     <Fragment>
       <div className="flex flex-row justify-center items-center border border-gray-400 cursor-pointer text-su font-semibold pt-[5px] pb-[5px] pl-[9px] pr-[9px] hover:bg-[#f1f1f2] hover:inset-1">
@@ -20,7 +22,16 @@ const Unlogin = () => {
         </svg>
         <span className="text-[#161823] ml-1">Upload</span>
       </div>
-      <button className="ml-[16px] mr-[16px] rounded-md bg-[#ef2950] text-[#ffffff] font-bold text-li pt-[6px] pb-[6px] pl-[27px] pr-[27px] hover:bg-gradient-to-tr hover:from-[rgba(0,0,0,0.1)] hover:to-[rgba(0,0,0,0.1)]">
+      <div>
+        <LoginModal
+          open={showLogin}
+          handleClose={() => setShowLogin(false)}
+        ></LoginModal>
+      </div>
+      <button
+        className="ml-[16px] mr-[16px] rounded-md bg-[#ef2950] text-[#ffffff] font-bold text-li pt-[6px] pb-[6px] pl-[27px] pr-[27px] hover:bg-gradient-to-tr hover:from-[rgba(0,0,0,0.1)] hover:to-[rgba(0,0,0,0.1)]"
+        onClick={() => setShowLogin(true)}
+      >
         Log in
       </button>
       <svg

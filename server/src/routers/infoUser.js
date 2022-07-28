@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const InfoUserController = require("../controllers/InfoUserController");
 const multer = require("multer");
-// const appRoot = require("app-root-path");
 const helpers = require("../helpers.js");
 
 router.get("/getAllInfo", InfoUserController.getAllInfoUsers);

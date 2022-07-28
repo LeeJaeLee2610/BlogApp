@@ -12,8 +12,8 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 mongoose.connect("mongodb://localhost:27017/blogapp");
