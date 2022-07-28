@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import DropdownUser from "../Dropdown/DropdownUser";
-import TooltipInbox from "../Tooltip/TooltipInbox";
-import TooltipMessage from "../Tooltip/TooltipMessage";
+import DropdownUser from "../dropdown/DropdownUser";
+import TooltipInbox from "../tooltip/TooltipInbox";
+import TooltipMessage from "../tooltip/TooltipMessage";
 
 const InLogin = () => {
   return (
