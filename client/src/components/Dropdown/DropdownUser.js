@@ -18,7 +18,7 @@ const DropdownUser = () => {
           }}
         />
         {show && (
-          <div className="absolute top-full right-0 mt-[10px] bg-[#616161] p-2 border border-black rounded-lg min-w-[120px]">
+          <div className="absolute top-full right-0 mt-[10px] bg-[#616161] p-2 border border-black rounded-lg min-w-[120px] border-none outline-none">
             <div className="p-2 cursor-pointer text-white text-center">
               View Profile
             </div>

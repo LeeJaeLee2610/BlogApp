@@ -34,7 +34,7 @@ const InboxTooltip = ({ children }) => {
 function TooltipContent({ children, coords }) {
   return ReactDOM.createPortal(
     <p
-      className="absolute inline-block text-white -translate-y-full bg-[#616161] rounded-xl max-w-[200px] -translate-x-2/4 mt-7 p-2"
+      className="absolute inline-block text-white -translate-y-full bg-[#616161] rounded-xl max-w-[200px] -translate-x-2/4 mt-7 p-2 border-none outline-none"
       style={{
         left: coords.left + coords.width / 2,
       }}

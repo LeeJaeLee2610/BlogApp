@@ -5,11 +5,19 @@ const LoginModal = ({ open = false, handleClose = () => {} }) => {
   if (typeof document === "undefined") return <div className="modal"></div>;
   return ReactDOM.createPortal(
     <div
-      className={`modal fixed inset-0 z-50 flex items-center justify-center p-5`}
+      className={`modal fixed inset-0 z-50 flex items-center justify-center p-5 ${
+        open ? "" : "opacity-0 invisible"
+      }`}
     >
-      <div className="absolute inset-0 bg-black bg-opacity-20 overlay"></div>
-      <div className="modal-content relative w-full bg-white z-10 p-5 rounded-lg max-w-[500px]">
-        <span className="absolute top-0 right-0 flex items-center justify-center w-10 h-10 p-1 bg-white rounded-full translate-x-2/4 -translate-y-2/4 cursor-pointer">
+      <div
+        className="absolute inset-0 bg-black bg-opacity-20 overlay"
+        onClick={handleClose}
+      ></div>
+      <div className="modal-content relative w-full bg-white z-10 p-5 rounded-lg max-w-[460px]">
+        <span
+          className="absolute top-0 right-0 flex items-center justify-center w-10 h-10 p-1 bg-white rounded-full translate-x-2/4 -translate-y-2/4 cursor-pointer"
+          onClick={handleClose}
+        >
           <svg
             width="14"
             height="14"
@@ -23,45 +31,66 @@ const LoginModal = ({ open = false, handleClose = () => {} }) => {
             />
           </svg>
         </span>
-        <h1 className="font-bold text-login text-center mb-6">
+        <h1 className="font-bold text-login text-center mb-6 select-none">
           Log in to Social Network
         </h1>
-        <div className="flex flex-col">
-          <div className="username flex flex-col mb-5">
-            <label htmlFor="" className="font-semibold">
+        <div className="flex flex-col max-h-[360px] overflow-auto touch-auto p-2">
+          <div className="username flex flex-col mb-3">
+            <label htmlFor="" className="font-semibold text-li select-none">
               Username
             </label>
             <input
               type="text"
               name="username"
-              placeholder="Enter your username ..."
+              placeholder="Enter your username..."
               className="p-3 focus:outline-none border rounded-lg mb-2 mt-2 border-gray-400"
             />
-            <span className="text-red-500">error</span>
+            {/* <span className="text-red-500 font-semibold">error</span> */}
           </div>
-          <div className="pass1 flex flex-col mb-5">
-            <label htmlFor="" className="font-semibold">
+          <div className="pass1 flex flex-col mb-3">
+            <label htmlFor="" className="font-semibold text-li select-none">
               Password
             </label>
             <input
               type="Password"
               name="pass1"
-              placeholder="Enter your password"
+              placeholder="Enter your password..."
               className="p-3 focus:outline-none border rounded-lg mb-2 mt-2 border-gray-400"
             />
-            <span className="text-red-500">error</span>
+            {/* <span className="text-red-500 font-semibold">error</span> */}
           </div>
-          <div className="pass2 flex flex-col mb-5">
-            <label htmlFor="" className="font-semibold">
+          <div className="pass2 flex flex-col mb-3">
+            <label htmlFor="" className="font-semibold text-li select-none">
               Retype password
             </label>
             <input
               type="Password"
               name="pass2"
-              placeholder="Enter re-password"
+              placeholder="Enter re-password..."
               className="p-3 focus:outline-none border rounded-lg mb-2 mt-2 border-gray-400"
             />
-            <span className="text-red-500">error</span>
+            {/* <span className="text-red-500 font-semibold">error</span> */}
+          </div>
+          <div className="flex flex-row justify-end">
+            <input
+              type="checkbox"
+              name="checkbox"
+              id="check1"
+              className="mr-3"
+            />
+            <label htmlFor="check1" className="select-none">
+              Remember Password?
+            </label>
+          </div>
+        </div>
+        <div className="flex justify-center items-center mt-4">
+          <div className="flex flex-row justify-between items-center pl-3 pr-3 w-[300px]">
+            <button className="p-2 bg-[#ef2950] rounded-lg text-white font-semibold text-li pl-5 pr-5 cursor-pointer hover:bg-gradient-to-tr hover:from-[rgba(0,0,0,0.1)] hover:to-[rgba(0,0,0,0.1)]">
+              Sign Up
+            </button>
+            <button className="p-2 bg-[#ef2950] rounded-lg text-white font-semibold text-li pl-5 pr-5 cursor-pointer hover:bg-gradient-to-tr hover:from-[rgba(0,0,0,0.1)] hover:to-[rgba(0,0,0,0.1)]">
+              Sign In
+            </button>
           </div>
         </div>
       </div>
