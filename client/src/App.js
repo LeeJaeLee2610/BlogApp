@@ -4,6 +4,8 @@ import "./index.scss";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./components/layout/HomePage";
 import FollowingPage from "./components/layout/FollowingPage";
+import HeaderFull from "./components/layout/HeaderFull";
+import ViewProfile from "./components/layout/ViewProfile";
 
 const App = () => {
   return (
@@ -27,6 +29,15 @@ const App = () => {
             }
           ></Route>
         </Route>
+        <Route
+          path="/profile"
+          element={
+            <>
+              <HeaderFull></HeaderFull>
+              <ViewProfile></ViewProfile>
+            </>
+          }
+        ></Route>
       </Routes>
     </Fragment>
   );

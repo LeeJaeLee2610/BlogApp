@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import InLogin from "../login/InLogin";
-import Unlogin from "../login/Unlogin";
+// import Unlogin from "../login/Unlogin";
 import { Outlet } from "react-router-dom";
 
 const Header = () => {
   return (
     <Fragment>
-      <header className="header sticky top-0 bg-white">
+      <header className="header sticky top-0 bg-white shadow-md">
         <div className="flex flex-row w-[1200px] justify-center items-center mx-auto mr-auto">
           <div className="w-1/3 flex justify-start items-center p-3">
             <h1 className="font-bold text-[#ff9696] text-logo font-logofami">
@@ -29,7 +29,7 @@ const Header = () => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <path
                     strokeLinecap="round"

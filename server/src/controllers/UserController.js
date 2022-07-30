@@ -19,13 +19,11 @@ class UserController {
   async addUser(req, res) {
     try {
       var user = new User();
-      const tmp = req.body;
-      // user.username = "emcuong";
-      // user.password = "emcuong123";
-      // await user.save();
-      console.log(tmp);
-      res.send(tmp);
+      user.username = req.body.username;
+      user.password = req.body.password;
       //   console.log(req.body);
+      await user.save();
+      res.send(req.body);
     } catch (error) {
       console.log(error);
     }
