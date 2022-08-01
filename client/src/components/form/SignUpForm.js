@@ -1,9 +1,34 @@
 import React, { Fragment } from "react";
+import styled from "styled-components";
+
+const SignUpScroll = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #f1f1f2;
+    border-radius: 150px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  padding: 12px;
+  border-bottom: 1px solid gray;
+  transition: all;
+  transition-delay: 200ms;
+`;
 
 const SignUpForm = ({ handleClose2 = () => {} }) => {
   return (
     <Fragment>
-      <div className="flex flex-col max-h-[400px] overflow-auto touch-auto p-3 border-b border-gray-300">
+      <SignUpScroll>
         <h1 className="font-bold text-login text-center mb-6 select-none">
           Sign up for Social Network
         </h1>
@@ -48,7 +73,7 @@ const SignUpForm = ({ handleClose2 = () => {} }) => {
         <button className="p-2 bg-[#ef2950] rounded-lg text-white font-semibold text-li pl-5 pr-5 cursor-pointer hover:bg-gradient-to-tr hover:from-[rgba(0,0,0,0.1)] hover:to-[rgba(0,0,0,0.1)]">
           Sign Up
         </button>
-      </div>
+      </SignUpScroll>
       <div className="flex justify-center items-center mt-3">
         <span className="mr-3">Already have an account?</span>
         <span

@@ -1,8 +1,15 @@
 import React from "react";
+import styled from "styled-components";
 
-const HomePage = () => {
+const ContentPageStyle = styled.div`
+  width: 800px;
+  float: right;
+  margin-top: 20px;
+`;
+
+const ContentPage = () => {
   return (
-    <div className="w-[800px] float-right border border-black p-2">
+    <ContentPageStyle>
       <div>OK</div>
       <div>OK</div>
       <div>OK</div>
@@ -61,8 +68,8 @@ const HomePage = () => {
       <div>OK</div>
       <div>OK</div>
       <div>OK</div>
-    </div>
+    </ContentPageStyle>
   );
 };
 
-export default HomePage;
+export default ContentPage;

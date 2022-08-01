@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import InLogin from "../login/InLogin";
+// import InLogin from "../login/InLogin";
 import Unlogin from "../login/Unlogin";
 import { Outlet } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const Header = () => {
               Social Network
             </h1>
           </div>
-          <div className="w-1/3 flex justify-center items-center p-3">
+          <div className="w-1/3 flex justify-center items-center">
             <div className="w-[361px] bg-[#f1f1f2] rounded-full flex flex-row items-center justify-center">
               <input
                 type="text"
@@ -29,7 +29,7 @@ const Header = () => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  strokeWidth="2"
+                  strokeWidth="1"
                 >
                   <path
                     strokeLinecap="round"

@@ -11,7 +11,7 @@ const LoginModal = ({ open = false, handleClose = () => {} }) => {
   if (typeof document === "undefined") return <div className="modal"></div>;
   return ReactDOM.createPortal(
     <div
-      className={`modal fixed inset-0 z-50 flex items-center justify-center ${
+      className={`modal transition-all delay-150 fixed inset-0 z-50 flex items-center justify-center ${
         open ? "" : "opacity-0 invisible"
       }`}
     >

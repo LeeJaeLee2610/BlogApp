@@ -10,8 +10,10 @@ module.exports = {
     fontSize: {
       su: ["16px", "24px"],
       li: ["16px", "24px"],
+      base: ["16px", "22px"],
       logo: ["28px", "36px"],
       login: ["30px", "40px"],
+      btn_login: ["18px", "25px"],
     },
     extend: {},
   },
