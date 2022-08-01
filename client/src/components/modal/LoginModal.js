@@ -1,11 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginModal = ({ open = false, handleClose = () => {} }) => {
+  const navigate = useNavigate();
   if (typeof document === "undefined") return <div className="modal"></div>;
+  console.log(showSignUp);
   return ReactDOM.createPortal(
     <div
-      className={`modal fixed inset-0 z-50 flex items-center justify-center p-5 ${
+      className={`modal fixed inset-0 z-40 flex items-center justify-center ${
         open ? "" : "opacity-0 invisible"
       }`}
     >
@@ -52,8 +55,9 @@ const LoginModal = ({ open = false, handleClose = () => {} }) => {
               Password
             </label>
             <input
-              type="Password"
+              type="password"
               name="pass1"
+              id="pass1"
               placeholder="Enter your password..."
               className="p-3 focus:outline-none border rounded-lg mb-2 mt-2 border-gray-400"
             />
@@ -64,8 +68,9 @@ const LoginModal = ({ open = false, handleClose = () => {} }) => {
               Retype password
             </label>
             <input
-              type="Password"
+              type="password"
               name="pass2"
+              id="pass2"
               placeholder="Enter re-password..."
               className="p-3 focus:outline-none border rounded-lg mb-2 mt-2 border-gray-400"
             />
@@ -86,9 +91,12 @@ const LoginModal = ({ open = false, handleClose = () => {} }) => {
         <div className="flex justify-center items-center mt-4">
           <div className="flex flex-row justify-between items-center pl-3 pr-3 w-[300px]">
             <button className="p-2 bg-[#ef2950] rounded-lg text-white font-semibold text-li pl-5 pr-5 cursor-pointer hover:bg-gradient-to-tr hover:from-[rgba(0,0,0,0.1)] hover:to-[rgba(0,0,0,0.1)]">
-              Sign Up
+              SignUp
             </button>
-            <button className="p-2 bg-[#ef2950] rounded-lg text-white font-semibold text-li pl-5 pr-5 cursor-pointer hover:bg-gradient-to-tr hover:from-[rgba(0,0,0,0.1)] hover:to-[rgba(0,0,0,0.1)]">
+            <button
+              className="p-2 bg-[#ef2950] rounded-lg text-white font-semibold text-li pl-5 pr-5 cursor-pointer hover:bg-gradient-to-tr hover:from-[rgba(0,0,0,0.1)] hover:to-[rgba(0,0,0,0.1)]"
+              onClick={() => navigate(`/11`)}
+            >
               Sign In
             </button>
           </div>

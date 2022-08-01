@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import InLogin from "../login/InLogin";
-// import Unlogin from "../login/Unlogin";
+import Unlogin from "../login/Unlogin";
 import { Outlet } from "react-router-dom";
 
 const Header = () => {
@@ -41,8 +41,8 @@ const Header = () => {
             </div>
           </div>
           <div className="w-1/3 flex justify-end items-center p-3">
-            {/* <Unlogin></Unlogin> */}
-            <InLogin></InLogin>
+            <Unlogin></Unlogin>
+            {/* <InLogin></InLogin> */}
           </div>
         </div>
       </header>

@@ -4,7 +4,7 @@ const InfoUserController = require("../controllers/InfoUserController");
 const multer = require("multer");
 const helpers = require("../helpers.js");
 
-router.get("/getAllInfo", InfoUserController.getAllInfoUsers);
+router.get("/getAllInfos", InfoUserController.getAllInfoUsers);
 
 const fileStorageEngine = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -20,16 +20,18 @@ const upload = multer({
   fileFilter: helpers.imageFilter,
 });
 
-router.post(
-  "/addInfo/:uid",
-  upload.single("image"),
-  InfoUserController.addInfoUser
-);
+// router.post(
+//   "/addInfo/:uid",
+//   upload.single("image"),
+//   InfoUserController.addInfoUser
+// );
 
 router.put(
   "/updateInfo/:uid",
   upload.single("image"),
   InfoUserController.updateInfoUser
 );
+
+router.get("/getInfoByUid/:uid", InfoUserController.getInfoUserByUid);
 
 module.exports = router;

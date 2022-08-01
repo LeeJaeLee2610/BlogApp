@@ -19,10 +19,14 @@ class UserController {
   async addUser(req, res) {
     try {
       var user = new User();
+      var info = new InfoUser();
       user.username = req.body.username;
       user.password = req.body.password;
       //   console.log(req.body);
       await user.save();
+      info.uid = user._id;
+      info.blogID = user.username;
+      await info.save();
       res.send(req.body);
     } catch (error) {
       console.log(error);
@@ -52,7 +56,7 @@ class UserController {
   }
 
   // doGet (getUserById)
-  async getUserById(req, res) {
+  async getUserByUid(req, res) {
     try {
       const user = await User.findOne({ _id: req.params._id });
       res.send(user);
@@ -68,7 +72,7 @@ class UserController {
       const tmp1 = 2;
       const userFollowing = await User.findOne({ _id: tmp1 });
       // uid dc của người được uid session follow
-      const tmp2 = parseInt(req.params.uid);
+      const tmp2 = parseInt(req.params._id);
       const userFollowers = await User.findOne({ _id: tmp2 });
       // console.log(typeof tmp);
       var ok1 = false;
@@ -111,6 +115,20 @@ class UserController {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  async setUserSession(req, res) {
+    try {
+      const user = await User.findOne({ _id: req.params._id });
+      req.session.user = user;
+      res.send(user);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  getUserSession(req, res) {
+    res.send(req.session.user);
   }
 }
 

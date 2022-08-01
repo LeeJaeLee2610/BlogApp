@@ -5,10 +5,10 @@ const cors = require("cors");
 const router = require("./routers");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-// const RedisStore = require("connect-redis")(session);
-// const { createClient } = require("redis");
-// let redisClient = createClient({ legacyMode: true });
-// redisClient.connect().catch(console.error);
+const RedisStore = require("connect-redis")(session);
+const { createClient } = require("redis");
+let redisClient = createClient({ legacyMode: true });
+redisClient.connect().catch(console.error);
 const cookieParser = require("cookie-parser");
 
 app.use(cors());
@@ -21,7 +21,7 @@ mongoose.connect("mongodb://localhost:27017/blogapp");
 app.use(
   session({
     secret: "keyboard cat",
-    // store: new RedisStore({ client: redisClient }),
+    store: new RedisStore({ client: redisClient }),
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false, httpOnly: true, maxAge: 60 * 60 * 24 },

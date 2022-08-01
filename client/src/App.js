@@ -6,6 +6,8 @@ import HomePage from "./components/layout/HomePage";
 import FollowingPage from "./components/layout/FollowingPage";
 import HeaderFull from "./components/layout/HeaderFull";
 import ViewProfile from "./components/layout/ViewProfile";
+// import SignUpModal from "./components/modal/SignUpModal";
+// import { AuthProvider } from "./contexts/auth-context";
 
 const App = () => {
   return (
@@ -29,15 +31,16 @@ const App = () => {
             }
           ></Route>
         </Route>
-        <Route
-          path="/profile"
-          element={
-            <>
-              <HeaderFull></HeaderFull>
-              <ViewProfile></ViewProfile>
-            </>
-          }
-        ></Route>
+        <Route element={<HeaderFull></HeaderFull>}>
+          <Route
+            path="/profile/:uid"
+            element={
+              <>
+                <ViewProfile></ViewProfile>
+              </>
+            }
+          ></Route>
+        </Route>
       </Routes>
     </Fragment>
   );

@@ -10,7 +10,7 @@ const DropdownUser = () => {
         ref={nodeRef}
       >
         <img
-          src="./images/1658842290314-282273672_1676657146045001_5848990282228639430_n.jpg"
+          src="../images/1658842290314-282273672_1676657146045001_5848990282228639430_n.jpg"
           alt=""
           className="object-cover w-full h-full rounded-full"
           onClick={() => {

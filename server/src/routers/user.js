@@ -6,7 +6,9 @@ router.get("/getAllUsers", UserController.getAllUser);
 router.post("/addUser", UserController.addUser);
 router.put("/updatePass/:_id", UserController.updatePass);
 router.delete("/deleteUser/:_id", UserController.deleteUser);
-router.get("/getUserById/:_id", UserController.getUserById);
-router.put("/updateFollow/:uid", UserController.updateFollow);
+router.get("/getUserByUid/:_id", UserController.getUserByUid);
+router.put("/updateFollow/:_id", UserController.updateFollow);
+router.get("/setUserSession/:_id", UserController.setUserSession);
+router.get("/getUserSession", UserController.getUserSession);
 
 module.exports = router;
