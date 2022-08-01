@@ -3,7 +3,6 @@ import LoginModal from "../modal/LoginModal";
 
 const Unlogin = () => {
   const [showLogin, setShowLogin] = useState(false);
-  // const [showSignUp, setShowSignUp] = useState(false);
   return (
     <Fragment>
       <div className="flex flex-row justify-center items-center border border-gray-400 cursor-pointer text-su font-semibold pt-[5px] pb-[5px] pl-[9px] pr-[9px] hover:bg-[#f1f1f2] hover:inset-1">

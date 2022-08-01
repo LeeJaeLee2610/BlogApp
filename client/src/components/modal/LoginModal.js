@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { useNavigate } from "react-router-dom";
+import SignInForm from "../form/SignInForm";
+import SignUpForm from "../form/SignUpForm";
+// import { useNavigate } from "react-router-dom";
 
 const LoginModal = ({ open = false, handleClose = () => {} }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const [showSignIn, setShowSignIn] = useState(true);
+  const [showSignUp, setShowSignUp] = useState(false);
   if (typeof document === "undefined") return <div className="modal"></div>;
-  console.log(showSignUp);
   return ReactDOM.createPortal(
     <div
-      className={`modal fixed inset-0 z-40 flex items-center justify-center ${
+      className={`modal fixed inset-0 z-50 flex items-center justify-center ${
         open ? "" : "opacity-0 invisible"
       }`}
     >
@@ -34,73 +37,22 @@ const LoginModal = ({ open = false, handleClose = () => {} }) => {
             />
           </svg>
         </span>
-        <h1 className="font-bold text-login text-center mb-6 select-none">
-          Log in to Social Network
-        </h1>
-        <div className="flex flex-col max-h-[360px] overflow-auto touch-auto p-2">
-          <div className="username flex flex-col mb-3">
-            <label htmlFor="" className="font-semibold text-li select-none">
-              Username
-            </label>
-            <input
-              type="text"
-              name="username"
-              placeholder="Enter your username..."
-              className="p-3 focus:outline-none border rounded-lg mb-2 mt-2 border-gray-400"
-            />
-            {/* <span className="text-red-500 font-semibold">error</span> */}
-          </div>
-          <div className="pass1 flex flex-col mb-3">
-            <label htmlFor="" className="font-semibold text-li select-none">
-              Password
-            </label>
-            <input
-              type="password"
-              name="pass1"
-              id="pass1"
-              placeholder="Enter your password..."
-              className="p-3 focus:outline-none border rounded-lg mb-2 mt-2 border-gray-400"
-            />
-            {/* <span className="text-red-500 font-semibold">error</span> */}
-          </div>
-          <div className="pass2 flex flex-col mb-3">
-            <label htmlFor="" className="font-semibold text-li select-none">
-              Retype password
-            </label>
-            <input
-              type="password"
-              name="pass2"
-              id="pass2"
-              placeholder="Enter re-password..."
-              className="p-3 focus:outline-none border rounded-lg mb-2 mt-2 border-gray-400"
-            />
-            {/* <span className="text-red-500 font-semibold">error</span> */}
-          </div>
-          <div className="flex flex-row justify-end">
-            <input
-              type="checkbox"
-              name="checkbox"
-              id="check1"
-              className="mr-3"
-            />
-            <label htmlFor="check1" className="select-none">
-              Remember Password?
-            </label>
-          </div>
-        </div>
-        <div className="flex justify-center items-center mt-4">
-          <div className="flex flex-row justify-between items-center pl-3 pr-3 w-[300px]">
-            <button className="p-2 bg-[#ef2950] rounded-lg text-white font-semibold text-li pl-5 pr-5 cursor-pointer hover:bg-gradient-to-tr hover:from-[rgba(0,0,0,0.1)] hover:to-[rgba(0,0,0,0.1)]">
-              SignUp
-            </button>
-            <button
-              className="p-2 bg-[#ef2950] rounded-lg text-white font-semibold text-li pl-5 pr-5 cursor-pointer hover:bg-gradient-to-tr hover:from-[rgba(0,0,0,0.1)] hover:to-[rgba(0,0,0,0.1)]"
-              onClick={() => navigate(`/11`)}
-            >
-              Sign In
-            </button>
-          </div>
-        </div>
+        {showSignIn && (
+          <SignInForm
+            handleClose1={() => {
+              setShowSignUp(true);
+              setShowSignIn(false);
+            }}
+          ></SignInForm>
+        )}
+        {showSignUp && (
+          <SignUpForm
+            handleClose2={() => {
+              setShowSignUp(false);
+              setShowSignIn(true);
+            }}
+          ></SignUpForm>
+        )}
       </div>
     </div>,
     document.querySelector("body")

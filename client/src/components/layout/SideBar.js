@@ -1,8 +1,42 @@
 import React from "react";
 
-const HomePage = () => {
+const SideBar = () => {
   return (
-    <div className="w-[800px] float-right border border-black p-2">
+    <div className="fixed w-[400px] border border-black float-left">
+      <div>Ui</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
+      <div>OK</div>
       <div>OK</div>
       <div>OK</div>
       <div>OK</div>
@@ -65,4 +99,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default SideBar;
