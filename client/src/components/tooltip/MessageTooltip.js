@@ -34,7 +34,7 @@ const MessageTooltip = ({ children }) => {
 function TootTipContent({ children, coords }) {
   return ReactDOM.createPortal(
     <p
-      className="absolute inline-block text-white -translate-y-full bg-[#616161] rounded-xl max-w-[200px] -translate-x-2/4 p-2 mt-7 border-none outline-none"
+      className="absolute inline-block text-white -translate-y-full bg-[#616161] rounded-xl max-w-[200px] -translate-x-2/4 p-2 mt-9 border-none outline-none z-20"
       style={{
         left: coords.left + coords.width / 2,
       }}

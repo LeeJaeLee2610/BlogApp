@@ -14,8 +14,14 @@ module.exports = {
       logo: ["28px", "36px"],
       login: ["30px", "40px"],
       btn_login: ["18px", "25px"],
+      sa: ["14px", "20px"],
+      fn: ["12px", "15px"],
     },
-    extend: {},
+    extend: {
+      colors: {
+        sac: "rgba(22, 24, 35, 0.75)",
+      },
+    },
   },
   plugins: [],
 };

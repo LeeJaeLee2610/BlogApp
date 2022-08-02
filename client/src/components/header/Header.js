@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
-// import InLogin from "../login/InLogin";
-import Unlogin from "../login/Unlogin";
+import InLogin from "../login/InLogin";
+// import Unlogin from "../login/Unlogin";
 import { Outlet } from "react-router-dom";
 
 const Header = () => {
   return (
     <Fragment>
-      <header className="header sticky top-0 bg-white shadow-md z-40">
+      <header className="header sticky top-0 bg-white shadow-md">
         <div className="flex flex-row w-[1200px] justify-center items-center mx-auto mr-auto">
           <div className="w-1/3 flex justify-start items-center p-3">
             <h1 className="font-bold text-[#ff9696] text-logo font-logofami">
@@ -41,8 +41,8 @@ const Header = () => {
             </div>
           </div>
           <div className="w-1/3 flex justify-end items-center p-3">
-            <Unlogin></Unlogin>
-            {/* <InLogin></InLogin> */}
+            {/* <Unlogin></Unlogin> */}
+            <InLogin></InLogin>
           </div>
         </div>
       </header>

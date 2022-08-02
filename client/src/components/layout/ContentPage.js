@@ -5,6 +5,7 @@ const ContentPageStyle = styled.div`
   width: 800px;
   float: right;
   margin-top: 20px;
+  z-index: 1;
 `;
 
 const ContentPage = () => {
