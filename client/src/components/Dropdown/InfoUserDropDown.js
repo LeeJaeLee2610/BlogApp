@@ -30,7 +30,9 @@ const InfoUserDropDown = () => {
                 alt=""
                 className="w-[36px] h-[36px] rounded-full object-cover"
               />
-              <button className="p-2 bg-[#ef2950] text-white rounded-lg">Follow</button>
+              <button className="p-2 bg-[#ef2950] text-white rounded-lg">
+                Follow
+              </button>
             </div>
             <div className="flex flex-col p-2">
               <h5 className="font-semibold text-sa">BlogID</h5>

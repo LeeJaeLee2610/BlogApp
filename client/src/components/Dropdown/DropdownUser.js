@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import useClickOutSide from "../../hooks/useClickOutSide";
+import { NavLink } from "react-router-dom";
 
 const DropdownUser = () => {
   const { show, setShow, nodeRef } = useClickOutSide();
@@ -19,9 +20,12 @@ const DropdownUser = () => {
         />
         {show && (
           <div className="absolute top-full right-0 mt-[10px] bg-white p-2 shadow-lg rounded-lg min-w-[220px] border-none outline-none">
-            <div className="p-2 cursor-pointer text-black text-center flex flex-row items-center justify-start">
+            <NavLink
+              to="/profile"
+              className="p-2 cursor-pointer text-black text-center flex flex-row items-center justify-start"
+            >
               <svg
-                class="css-g0144v"
+                className="css-g0144v"
                 width="1em"
                 height="1em"
                 viewBox="0 0 48 48"
@@ -35,10 +39,10 @@ const DropdownUser = () => {
                 ></path>
               </svg>
               <span className="ml-2">View Profile</span>
-            </div>
+            </NavLink>
             <div className="p-2 cursor-pointer text-black text-cente flex flex-row items-center justify-start">
               <svg
-                class="css-g0144v"
+                className="css-g0144v"
                 width="1em"
                 height="1em"
                 viewBox="0 0 48 48"
@@ -55,7 +59,7 @@ const DropdownUser = () => {
             </div>
             <div className="p-2 cursor-pointer text-black text-center flex flex-row items-center justify-start border-t border-[#f1f1f2]">
               <svg
-                class="css-g0144v"
+                className="css-g0144v"
                 width="1em"
                 height="1em"
                 viewBox="0 0 48 48"

@@ -6,8 +6,7 @@ import FollowingPage from "./components/layout/FollowingPage";
 import HeaderFull from "./components/header/HeaderFull";
 import ViewProfile from "./components/layout/ViewProfile";
 import Main from "./components/layout/Main";
-// import SignUpModal from "./components/modal/SignUpModal";
-// import { AuthProvider } from "./contexts/auth-context";
+import { AuthProvider } from "./contexts/auth-context";
 
 const App = () => {
   return (
@@ -23,17 +22,20 @@ const App = () => {
               </>
             }
           ></Route>
+          <Route path="/featured-articles"></Route>
         </Route>
         <Route element={<HeaderFull></HeaderFull>}>
           <Route
-            path="/profile/:uid"
+            path="/profile"
             element={
               <>
                 <ViewProfile></ViewProfile>
               </>
             }
           ></Route>
+          <Route path="/:blogID"></Route>
         </Route>
+        <Route path="*"></Route>
       </Routes>
     </Fragment>
   );

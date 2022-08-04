@@ -1,9 +1,36 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import InLogin from "../login/InLogin";
-// import Unlogin from "../login/Unlogin";
+import Unlogin from "../login/Unlogin";
 import { Outlet } from "react-router-dom";
+import { getUserApi } from "../../config";
 
 const Header = () => {
+  const [showUnLog, setInShowLog] = useState(true);
+  const [values, setValues] = useState({
+    username: "emcuong",
+    pass1: "",
+  });
+  const [uid, setUid] = useState(0);
+  useEffect(() => {
+    fetch(getUserApi.setSessionUser(uid))
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setInShowLog(false);
+      })
+      .catch((err) => {
+        setInShowLog(true);
+      });
+  }, [uid]);
+  console.log(sessionStorage.getItem("username"));
+  // console.log(user);
+  // if (user) {
+  //   setInShowLog(false);
+  // } else {
+  //   setInShowLog(true);
+  // }
+  // console.log(values);
   return (
     <Fragment>
       <header className="header sticky top-0 bg-white shadow-md">
@@ -41,8 +68,11 @@ const Header = () => {
             </div>
           </div>
           <div className="w-1/3 flex justify-end items-center p-3">
-            {/* <Unlogin></Unlogin> */}
-            <InLogin></InLogin>
+            {showUnLog ? (
+              <Unlogin values={values}></Unlogin>
+            ) : (
+              <InLogin></InLogin>
+            )}
           </div>
         </div>
       </header>

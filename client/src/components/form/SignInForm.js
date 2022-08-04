@@ -1,5 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
+import { fetcher, getUserApi } from "../../config";
+import useHandleChange from "../../hooks/useHanleChange";
+import useSWR from "swr";
 
 const SignInScroll = styled.div`
   display: flex;
@@ -25,7 +28,63 @@ const SignInScroll = styled.div`
   transition-delay: 200ms;
 `;
 
-const SignInForm = ({ handleClose1 = () => {} }) => {
+const SignInForm = ({ handleClose1 = () => {}, handleClose }) => {
+  const [inLogIn, setInLogIn] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  const [duplicate, setDuplicate] = useState("");
+  const [errorUserName, setErrorUserName] = useState("");
+  const [errorPass, setErrorPass] = useState("");
+
+  const { values, handleChange } = useHandleChange({
+    username: "",
+    pass1: "",
+    pass2: "",
+  });
+
+  // useEffect(() => {
+  //   if (values.username !== "") {
+  //     fetch(getUserApi.getUserByUserName(values.username))
+  //       .then((res) => {
+  //         return res.json();
+  //       })
+  //       .then((res) => {})
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // }, [values]);
+
+  const handleSignIn = () => {
+    console.log(values);
+    if (values.username !== "") {
+      fetch(getUserApi.getUserByUserName(values.username))
+        .then((res) => {
+          return res.json();
+        })
+        .then((res) => {
+          setInLogIn(true);
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
+  // useEffect(() => {
+  //   if (debounceValue) {
+  //     fetch(getUserApi.getUserByUserName(debounceValue.username))
+  //       .then((res) => {
+  //         return res.json();
+  //       })
+  //       .then((user) => {
+  //         // fetch(getUserApi.setSessionUser(user._id));
+  //       })
+  //       .catch((error) => {
+  //         console.log("No data");
+  //       });
+  //   }
+  // }, [debounceValue]);
   return (
     <Fragment>
       <SignInScroll>
@@ -39,10 +98,14 @@ const SignInForm = ({ handleClose1 = () => {} }) => {
           <input
             type="text"
             name="username"
+            id="username"
             placeholder="Enter your username..."
             className="p-3 focus:outline-none border rounded-lg mb-2 mt-2 border-gray-400"
+            onChange={handleChange}
           />
-          {/* <span className="text-red-500 font-semibold">error</span> */}
+          {/* <span className="text-red-500 font-semibold">
+            {errorEmpty.username}
+          </span> */}
         </div>
         <div className="pass1 flex flex-col mb-3">
           <label htmlFor="" className="font-semibold text-li select-none">
@@ -54,6 +117,7 @@ const SignInForm = ({ handleClose1 = () => {} }) => {
             id="pass1"
             placeholder="Enter your password..."
             className="p-3 focus:outline-none border rounded-lg mb-2 mt-2 border-gray-400"
+            onChange={handleChange}
           />
           {/* <span className="text-red-500 font-semibold">error</span> */}
         </div>
@@ -67,6 +131,7 @@ const SignInForm = ({ handleClose1 = () => {} }) => {
             id="pass2"
             placeholder="Enter re-password..."
             className="p-3 focus:outline-none border rounded-lg mb-2 mt-2 border-gray-400"
+            onChange={handleChange}
           />
           {/* <span className="text-red-500 font-semibold">error</span> */}
         </div>
@@ -76,9 +141,21 @@ const SignInForm = ({ handleClose1 = () => {} }) => {
             Remember Password?
           </label>
         </div>
-        <button className="p-2 bg-[#ef2950] rounded-lg text-white font-semibold text-li pl-5 pr-5 cursor-pointer hover:bg-gradient-to-tr hover:from-[rgba(0,0,0,0.1)] hover:to-[rgba(0,0,0,0.1)]">
-          Sign In
-        </button>
+        {inLogIn ? (
+          <button
+            className="p-2 bg-[#ef2950] rounded-lg text-white font-semibold text-li pl-5 pr-5 cursor-pointer hover:bg-gradient-to-tr hover:from-[rgba(0,0,0,0.1)] hover:to-[rgba(0,0,0,0.1)]"
+            onClick={handleClose}
+          >
+            Sign In
+          </button>
+        ) : (
+          <button
+            className="p-2 bg-[#ef2950] rounded-lg text-white font-semibold text-li pl-5 pr-5 cursor-pointer hover:bg-gradient-to-tr hover:from-[rgba(0,0,0,0.1)] hover:to-[rgba(0,0,0,0.1)]"
+            onClick={handleSignIn}
+          >
+            Sign In
+          </button>
+        )}
       </SignInScroll>
       <div className="flex justify-center items-center mt-3">
         <span className="mr-3">Don't have an account?</span>

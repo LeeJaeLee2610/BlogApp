@@ -22,7 +22,7 @@ app.use(
   session({
     secret: "keyboard cat",
     // store: new RedisStore({ client: redisClient }),
-    resave: false,
+    resave: true,
     saveUninitialized: true,
     cookie: { secure: false, httpOnly: true, maxAge: 60 * 60 * 24 },
   })
@@ -33,12 +33,17 @@ app.use(
 //     username: "emcuong",
 //     password: "emcuong123",
 //   };
+//   var tmp1 = {
+//     username: "cuongem",
+//     password: "cuongne",
+//   };
 //   req.session.u = tmp;
-//   res.send("ok");
+//   req.session.u1 = tmp1;
+//   res.send(req.session);
 // });
 
 // app.get("/getSession", (req, res) => {
-//   res.send(req.session);
+//   res.send(req.session.u);
 // });
 
 // app.get("/setCookie", (req, res) => {

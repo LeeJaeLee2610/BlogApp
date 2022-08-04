@@ -65,6 +65,16 @@ class UserController {
     }
   }
 
+  // doGet (getUserByUsername)
+  async getUserByUserName(req, res) {
+    try {
+      const user = await User.findOne({ username: req.params.username });
+      res.send(user);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   // doPut UpdateFollow
   async updateFollow(req, res) {
     try {
@@ -115,20 +125,6 @@ class UserController {
     } catch (error) {
       console.log(error);
     }
-  }
-
-  async setUserSession(req, res) {
-    try {
-      const user = await User.findOne({ _id: req.params._id });
-      req.session.user = user;
-      res.send(user);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  getUserSession(req, res) {
-    res.send(req.session.user);
   }
 }
 
