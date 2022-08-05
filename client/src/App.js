@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+import Header from "./components/header/Header";
+import { Route, Routes } from "react-router-dom";
+import FollowingPage from "./components/layout/FollowingPage";
+import HeaderFull from "./components/header/HeaderFull";
+import ViewProfile from "./components/layout/ViewProfile";
+import Main from "./components/layout/Main";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Routes>
+        <Route element={<Header></Header>}>
+          <Route path="/" element={<Main></Main>}></Route>
+          <Route
+            path="/following"
+            element={
+              <>
+                <FollowingPage></FollowingPage>
+              </>
+            }
+          ></Route>
+          <Route path="/featured-articles"></Route>
+        </Route>
+        <Route element={<HeaderFull></HeaderFull>}>
+          <Route
+            path="/profile"
+            element={
+              <>
+                <ViewProfile></ViewProfile>
+              </>
+            }
+          ></Route>
+          <Route path="/:blogID"></Route>
+        </Route>
+        <Route path="*"></Route>
+      </Routes>
+    </Fragment>
   );
-}
+};
 
 export default App;
