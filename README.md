@@ -1,2 +1,2 @@
 # BlogApp
-ReactJS &amp;&amp; ExpressJS
+MongoDB &amp;&amp; ExpressJS && ReactJS && NodeJS
