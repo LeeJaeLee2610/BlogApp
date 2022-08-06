@@ -52,5 +52,15 @@ class InfoUserController {
     const info = await InfoUser.findOne({ uid: req.params.uid });
     res.send(info);
   }
+
+  async get3InfoSA(req, res) {
+    const infos = await InfoUser.find({}).limit(3);
+    res.send(infos);
+  }
+
+  async get10InfoSA(req, res) {
+    const infos = await InfoUser.find({}).limit(10);
+    res.send(infos);
+  }
 }
 module.exports = new InfoUserController();

@@ -83,7 +83,7 @@ const InLogSideBar = () => {
         <p className="text-sa text-sac pl-2 pb-4">Suggested accounts</p>
         {suggestedAccounts.length > 0 &&
           suggestedAccounts.map((item, index) => (
-            <InfoUserDropDown></InfoUserDropDown>
+            <InfoUserDropDown key={index}></InfoUserDropDown>
           ))}
         {see ? (
           <span
@@ -111,7 +111,7 @@ const InLogSideBar = () => {
         <p className="text-sa text-sac pl-2 pb-4">Following accounts</p>
         {suggestedAccounts1.length > 0 &&
           suggestedAccounts1.map((item, index) => (
-            <InfoUserDropDown></InfoUserDropDown>
+            <InfoUserDropDown key={index}></InfoUserDropDown>
           ))}
         {see1 ? (
           <span
@@ -140,7 +140,7 @@ const InLogSideBar = () => {
         <div className="w-full flex flex-wrap">
           <div className="flex flex-row items-center justify-center mr-3 bg-transparent rounded-2xl p-[5px] border border-black mb-2">
             <svg
-              class="tiktok-1hy6k9f-StyledNumber eikhr9j9"
+              className="tiktok-1hy6k9f-StyledNumber eikhr9j9"
               width="16"
               height="16"
               viewBox="0 0 48 48"
@@ -157,7 +157,7 @@ const InLogSideBar = () => {
           </div>
           <div className="flex flex-row items-center justify-center mr-3 bg-transparent rounded-2xl p-[5px] border border-black mb-2">
             <svg
-              class="tiktok-1hy6k9f-StyledNumber eikhr9j9"
+              className="tiktok-1hy6k9f-StyledNumber eikhr9j9"
               width="16"
               height="16"
               viewBox="0 0 48 48"
@@ -174,7 +174,7 @@ const InLogSideBar = () => {
           </div>
           <div className="flex flex-row items-center justify-center mr-3 bg-transparent rounded-2xl p-[5px] border border-black mb-2">
             <svg
-              class="tiktok-1hy6k9f-StyledNumber eikhr9j9"
+              className="tiktok-1hy6k9f-StyledNumber eikhr9j9"
               width="16"
               height="16"
               viewBox="0 0 48 48"
@@ -191,7 +191,7 @@ const InLogSideBar = () => {
           </div>
           <div className="flex flex-row items-center justify-center mr-3 bg-transparent rounded-2xl p-[5px] border border-black mb-2">
             <svg
-              class="tiktok-1hy6k9f-StyledNumber eikhr9j9"
+              className="tiktok-1hy6k9f-StyledNumber eikhr9j9"
               width="16"
               height="16"
               viewBox="0 0 48 48"
@@ -208,7 +208,7 @@ const InLogSideBar = () => {
           </div>
           <div className="flex flex-row items-center justify-center mr-3 bg-transparent rounded-2xl p-[5px] border border-black mb-2">
             <svg
-              class="tiktok-1hy6k9f-StyledNumber eikhr9j9"
+              className="tiktok-1hy6k9f-StyledNumber eikhr9j9"
               width="16"
               height="16"
               viewBox="0 0 48 48"

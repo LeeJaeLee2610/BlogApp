@@ -33,5 +33,7 @@ router.put(
 );
 
 router.get("/getInfoByUid/:uid", InfoUserController.getInfoUserByUid);
+router.get("/get3infos", InfoUserController.get3InfoSA);
+router.get("/get10infos", InfoUserController.get10InfoSA);
 
 module.exports = router;

@@ -8,6 +8,6 @@ router.put("/updatePass/:_id", UserController.updatePass);
 router.delete("/deleteUser/:_id", UserController.deleteUser);
 router.get("/getUserByUid/:_id", UserController.getUserByUid);
 router.get("/getUserByUserName/:username", UserController.getUserByUserName);
-router.put("/updateFollow/:_id", UserController.updateFollow);
+router.put("/updateFollow/:_id/:uid", UserController.updateFollow);
 
 module.exports = router;

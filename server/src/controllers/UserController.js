@@ -24,8 +24,13 @@ class UserController {
       user.password = req.body.password;
       //   console.log(req.body);
       await user.save();
+      info.image_path =
+        "1659172774952-282273672_1676657146045001_5848990282228639430_n.jpg";
       info.uid = user._id;
       info.blogID = user.username;
+      info.like = user.likes.length;
+      info.follower = user.followers.length;
+      info.following = user.following.length;
       await info.save();
       res.send(req.body);
     } catch (error) {
@@ -79,10 +84,10 @@ class UserController {
   async updateFollow(req, res) {
     try {
       // uid dc lưu trên session
-      const tmp1 = 2;
+      const tmp1 = parseInt(req.params._id);
       const userFollowing = await User.findOne({ _id: tmp1 });
       // uid dc của người được uid session follow
-      const tmp2 = parseInt(req.params._id);
+      const tmp2 = parseInt(req.params.uid);
       const userFollowers = await User.findOne({ _id: tmp2 });
       // console.log(typeof tmp);
       var ok1 = false;
@@ -100,7 +105,6 @@ class UserController {
         userFollowing.save();
       } else {
         userFollowing.following.push(tmp2);
-        // console.log(user.following);
         userFollowing.save();
       }
       var ok2 = false;
@@ -118,7 +122,6 @@ class UserController {
         userFollowers.save();
       } else {
         userFollowers.followers.push(tmp1);
-        // console.log(user.following);
         userFollowers.save();
       }
       res.send(`${userFollowers} ${userFollowing}`);

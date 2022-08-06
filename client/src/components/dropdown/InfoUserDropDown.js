@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-const InfoUserDropDown = () => {
+const InfoUserDropDown = ({ item }) => {
   const [showInfoUser, setShowInfoUser] = useState(false);
   return (
     <Fragment>
@@ -11,22 +11,22 @@ const InfoUserDropDown = () => {
       >
         <div className="flex flex-row justify-start items-center pl-1 pt-2 pb-2">
           <img
-            src="./images/1659172774952-282273672_1676657146045001_5848990282228639430_n.jpg"
+            src={`./images/${item.image_path}`}
             alt=""
             className="w-[32px] h-[32px] object-cover rounded-full"
           />
           <div className="ml-[20px]">
             <div className="flex flex-row items-center font-semibold text-base overflow-hidden">
-              Blog ID
+              {item.blogID}
             </div>
-            <p className="text-sac text-fn">fullname</p>
+            <p className="text-sac text-fn">{`${item.firstname} ${item.lastname}`}</p>
           </div>
         </div>
         {showInfoUser && (
           <div className="absolute z-10 bg-white min-w-[300px] border rounded-lg shadow-md left-10">
             <div className="flex flex-row justify-between items-center pt-2 pl-2 pr-2">
               <img
-                src="./images/1659172774952-282273672_1676657146045001_5848990282228639430_n.jpg"
+                src={`./images/${item.image_path}`}
                 alt=""
                 className="w-[36px] h-[36px] rounded-full object-cover"
               />

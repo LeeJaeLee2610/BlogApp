@@ -1,12 +1,15 @@
 import React, { Fragment, useState } from "react";
 import InfoUserDropDown from "../dropdown/InfoUserDropDown";
 import { NavLink } from "react-router-dom";
+import useSWR from "swr";
+import { fetcher, getUserApi } from "../../config";
 
 const UnLogSideBar = () => {
-  const [suggestedAccounts, setSuggestedAccounts] = useState(Array(3).fill(0));
   const [see, setSee] = useState(true);
-  // const [actived1, setActived1] = useState(false);
-  // console.log(actived1);
+
+  const { data: infos3SA } = useSWR(getUserApi.get3InfoSA, fetcher);
+  const { data: infos10SA } = useSWR(getUserApi.get10InfoSA, fetcher);
+
   return (
     <Fragment>
       <div className="pt-[15px] pb-[12px]">
@@ -91,30 +94,36 @@ const UnLogSideBar = () => {
       </div>
       <div className="pt-[16px] pb-[16px]">
         <p className="text-sa text-sac pl-2 pb-4">Suggested accounts</p>
-        {suggestedAccounts.length > 0 &&
-          suggestedAccounts.map((item, index) => (
-            <InfoUserDropDown key={index}></InfoUserDropDown>
-          ))}
         {see ? (
-          <span
-            className="cursor-pointer text-[#fe2c55] pl-1"
-            onClick={() => {
-              setSuggestedAccounts(Array(9).fill(0));
-              setSee(false);
-            }}
-          >
-            See more
-          </span>
+          <>
+            {infos3SA &&
+              infos3SA.map((item) => (
+                <InfoUserDropDown key={item._id} item={item}></InfoUserDropDown>
+              ))}
+            <span
+              className="cursor-pointer text-[#fe2c55] pl-1"
+              onClick={() => {
+                setSee(false);
+              }}
+            >
+              See more
+            </span>
+          </>
         ) : (
-          <span
-            className="cursor-pointer text-[#fe2c55] pl-1"
-            onClick={() => {
-              setSuggestedAccounts(Array(3).fill(0));
-              setSee(true);
-            }}
-          >
-            See less
-          </span>
+          <>
+            {infos10SA &&
+              infos10SA.map((item) => (
+                <InfoUserDropDown key={item._id} item={item}></InfoUserDropDown>
+              ))}
+            <span
+              className="cursor-pointer text-[#fe2c55] pl-1"
+              onClick={() => {
+                setSee(true);
+              }}
+            >
+              See less
+            </span>
+          </>
         )}
       </div>
       <div className="border-t border-[#f1f1f2] border-b pb-3 mr-2">
