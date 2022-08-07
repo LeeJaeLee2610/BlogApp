@@ -1,17 +1,23 @@
 import React, { Fragment, useState } from "react";
-import InfoUserDropDown from "../dropdown/InfoUserDropDown";
 import { NavLink } from "react-router-dom";
 import useSWR from "swr";
-import { fetcher, getUserApi } from "../../config";
+import { fetcher, getApi } from "../../config";
+import UnInfoUserDropDown from "../dropdown/UnInfoUserDropDown";
+import LoginModal from "../modal/LoginModal";
 
 const UnLogSideBar = () => {
+  const [showLogin, setShowLogin] = useState(false);
   const [see, setSee] = useState(true);
 
-  const { data: infos3SA } = useSWR(getUserApi.get3InfoSA, fetcher);
-  const { data: infos10SA } = useSWR(getUserApi.get10InfoSA, fetcher);
+  const { data: infos3SA } = useSWR(getApi.get3InfoSA, fetcher);
+  const { data: infos10SA } = useSWR(getApi.get10InfoSA, fetcher);
 
   return (
     <Fragment>
+      <LoginModal
+        open={showLogin}
+        handleClose={() => setShowLogin(false)}
+      ></LoginModal>
       <div className="pt-[15px] pb-[12px]">
         <NavLink
           to="/"
@@ -88,7 +94,12 @@ const UnLogSideBar = () => {
         <span className="text-[#8a8B91] text-base text-left">
           Log in to follow creators, like articles and view cmts.
         </span>
-        <button className="min-w-[376px] border border-[#ef2c55] font-semibold text-[#ef2c55] text-btn_login rounded-md pt-[6px] pb-[6px] pl-[8px] pr-[8px] min-h-[48px] mt-[20px] hover:bg-gradient-to-br hover:from-[#fff3f5] hover:to-[#fff3f5]">
+        <button
+          className="min-w-[376px] border border-[#ef2c55] font-semibold text-[#ef2c55] text-btn_login rounded-md pt-[6px] pb-[6px] pl-[8px] pr-[8px] min-h-[48px] mt-[20px] hover:bg-gradient-to-br hover:from-[#fff3f5] hover:to-[#fff3f5]"
+          onClick={() => {
+            setShowLogin(true);
+          }}
+        >
           Log in
         </button>
       </div>
@@ -98,7 +109,10 @@ const UnLogSideBar = () => {
           <>
             {infos3SA &&
               infos3SA.map((item) => (
-                <InfoUserDropDown key={item._id} item={item}></InfoUserDropDown>
+                <UnInfoUserDropDown
+                  key={item._id}
+                  item={item}
+                ></UnInfoUserDropDown>
               ))}
             <span
               className="cursor-pointer text-[#fe2c55] pl-1"
@@ -113,7 +127,10 @@ const UnLogSideBar = () => {
           <>
             {infos10SA &&
               infos10SA.map((item) => (
-                <InfoUserDropDown key={item._id} item={item}></InfoUserDropDown>
+                <UnInfoUserDropDown
+                  key={item._id}
+                  item={item}
+                ></UnInfoUserDropDown>
               ))}
             <span
               className="cursor-pointer text-[#fe2c55] pl-1"

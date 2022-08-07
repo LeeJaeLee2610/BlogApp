@@ -7,13 +7,13 @@ const Header = () => {
   const [showUnLog, setShowUnLog] = useState(true);
   const [showX, setShowX] = useState(false);
 
-  const handleSearchChange = (e) => {
+  function handleSearchChange(e) {
     if (e.target.value === "") {
       setShowX(false);
     } else {
       setShowX(true);
     }
-  };
+  }
 
   useEffect(() => {
     fetch(
@@ -44,7 +44,7 @@ const Header = () => {
             <div className="w-[361px] bg-[#f1f1f2] rounded-full flex flex-row items-center justify-center relative">
               <input
                 type="text"
-                className="bg-transparent w-[290px] p-3 focus:outline-none"
+                className="bg-transparent w-[290px] pl-3 pt-3 pb-3 pr-6 focus:outline-none"
                 id="search"
                 autoComplete="off"
                 placeholder="Search accounts and articles..."

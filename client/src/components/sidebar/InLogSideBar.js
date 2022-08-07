@@ -1,12 +1,61 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import InfoUserDropDown from "../dropdown/InfoUserDropDown";
 
 const InLogSideBar = () => {
-  const [suggestedAccounts, setSuggestedAccounts] = useState(Array(3).fill(0));
+  const uid = sessionStorage.getItem("uid");
+  const [info3SA, setInfo3SA] = useState([]);
+  const [info10SA, setInfo10SA] = useState([]);
+  const [info3FL, setInfo3FL] = useState([]);
+  const [info10FL, setInfo10FL] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:3030/info/get3infos1/${uid}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        setInfo3SA(res);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    fetch(`http://localhost:3030/info/get10infos1/${uid}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        setInfo10SA(res);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    fetch(`http://localhost:3030/info/get3infoFL/${uid}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        setInfo3FL(res);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    fetch(`http://localhost:3030/info/get10infoFL/${uid}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        setInfo10FL(res);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [uid]);
+
   const [see, setSee] = useState(true);
-  const [suggestedAccounts1, setSuggestedAccounts1] = useState(
-    Array(3).fill(0)
-  );
   const [see1, setSee1] = useState(true);
   return (
     <Fragment>
@@ -81,58 +130,102 @@ const InLogSideBar = () => {
       </div>
       <div className="pt-[16px] pb-[16px] border-t border-[#f1f1f2] mr-2">
         <p className="text-sa text-sac pl-2 pb-4">Suggested accounts</p>
-        {suggestedAccounts.length > 0 &&
-          suggestedAccounts.map((item, index) => (
-            <InfoUserDropDown key={index}></InfoUserDropDown>
-          ))}
         {see ? (
-          <span
-            className="cursor-pointer text-[#fe2c55] pl-1"
-            onClick={() => {
-              setSuggestedAccounts(Array(9).fill(0));
-              setSee(false);
-            }}
-          >
-            See more
-          </span>
+          <>
+            {info3SA.length > 0 &&
+              info3SA.map((item) => (
+                <InfoUserDropDown key={item._id} item={item}></InfoUserDropDown>
+              ))}
+            <span
+              className="cursor-pointer text-[#fe2c55] pl-1"
+              onClick={() => {
+                setSee(false);
+              }}
+            >
+              See more
+            </span>
+          </>
         ) : (
-          <span
-            className="cursor-pointer text-[#fe2c55] pl-1"
-            onClick={() => {
-              setSuggestedAccounts(Array(3).fill(0));
-              setSee(true);
-            }}
-          >
-            See less
-          </span>
+          <>
+            {info10SA.length > 0 &&
+              info10SA.map((item) => (
+                <InfoUserDropDown key={item._id} item={item}></InfoUserDropDown>
+              ))}
+            <span
+              className="cursor-pointer text-[#fe2c55] pl-1"
+              onClick={() => {
+                setSee(true);
+              }}
+            >
+              See less
+            </span>
+          </>
         )}
       </div>
       <div className="pt-[16px] pb-[16px] border-t border-[#f1f1f2] mr-2">
         <p className="text-sa text-sac pl-2 pb-4">Following accounts</p>
-        {suggestedAccounts1.length > 0 &&
-          suggestedAccounts1.map((item, index) => (
-            <InfoUserDropDown key={index}></InfoUserDropDown>
-          ))}
         {see1 ? (
-          <span
-            className="cursor-pointer text-[#fe2c55] pl-1"
-            onClick={() => {
-              setSuggestedAccounts1(Array(9).fill(0));
-              setSee1(false);
-            }}
-          >
-            See more
-          </span>
+          <>
+            {info3FL.length > 0 &&
+              info3FL.map((item) => (
+                <div className="flex flex-row justify-start items-center pl-1 pt-2 pb-2 cursor-pointer hover:bg-[#f8f8f8]">
+                  <img
+                    src={`./images/${item.image_path}`}
+                    alt=""
+                    className="w-[32px] h-[32px] object-cover rounded-full"
+                  />
+                  <div className="ml-[20px]">
+                    <div className="flex flex-row items-center font-semibold text-base overflow-hidden">
+                      {item.blogID}
+                    </div>
+                    <p className="text-sac text-fn">
+                      {item.firstname
+                        ? `${item.firstname} ${item.lastname}`
+                        : ""}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            <span
+              className="cursor-pointer text-[#fe2c55] pl-1"
+              onClick={() => {
+                setSee1(false);
+              }}
+            >
+              See more
+            </span>
+          </>
         ) : (
-          <span
-            className="cursor-pointer text-[#fe2c55] pl-1"
-            onClick={() => {
-              setSuggestedAccounts1(Array(3).fill(0));
-              setSee1(true);
-            }}
-          >
-            See less
-          </span>
+          <>
+            {info10FL.length > 0 &&
+              info10FL.map((item) => (
+                <div className="flex flex-row justify-start items-center pl-1 pt-2 pb-2 cursor-pointer hover:bg-[#f8f8f8]">
+                  <img
+                    src={`./images/${item.image_path}`}
+                    alt=""
+                    className="w-[32px] h-[32px] object-cover rounded-full"
+                  />
+                  <div className="ml-[20px]">
+                    <div className="flex flex-row items-center font-semibold text-base overflow-hidden">
+                      {item.blogID}
+                    </div>
+                    <p className="text-sac text-fn">
+                      {item.firstname
+                        ? `${item.firstname} ${item.lastname}`
+                        : ""}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            <span
+              className="cursor-pointer text-[#fe2c55] pl-1"
+              onClick={() => {
+                setSee1(true);
+              }}
+            >
+              See less
+            </span>
+          </>
         )}
       </div>
       <div className="border-t border-[#f1f1f2] border-b pb-3 mr-2">

@@ -1,18 +1,19 @@
 import React, { Fragment, useState } from "react";
+import LoginModal from "../modal/LoginModal";
 
-const InfoUserDropDown = ({ item }) => {
+const UnInfoUserDropDown = ({ item }) => {
+  const [showLogin, setShowLogin] = useState(false);
   const [showInfoUser, setShowInfoUser] = useState(false);
-  const [following, setFollowing] = useState(false);
+
   function handleFollow() {
-    setFollowing(true);
-    console.log("Following");
-  }
-  function handleFollowing() {
-    setFollowing(false);
-    console.log("Follow");
+    setShowLogin(true);
   }
   return (
     <Fragment>
+      <LoginModal
+        open={showLogin}
+        handleClose={() => setShowLogin(false)}
+      ></LoginModal>
       <div
         className="relative cursor-pointer hover:bg-[#f8f8f8]"
         onMouseOver={() => setShowInfoUser(true)}
@@ -41,25 +42,14 @@ const InfoUserDropDown = ({ item }) => {
                 alt=""
                 className="w-[36px] h-[36px] rounded-full object-cover"
               />
-              {following ? (
-                <button
-                  className="min-w-[99px] pt-[5px] pb-[5px] pl-[8px] pr-[8px] border border-[#888888] rounded-lg text-black bg-transparent font-semibold outline-none"
-                  onClick={() => {
-                    handleFollowing();
-                  }}
-                >
-                  Following
-                </button>
-              ) : (
-                <button
-                  className="min-w-[100px] pt-[6px] pb-[6px] pl-[8px] pr-[8px] bg-[#ef2950] text-white rounded-lg font-semibold text-su"
-                  onClick={() => {
-                    handleFollow();
-                  }}
-                >
-                  Follow
-                </button>
-              )}
+              <button
+                className="min-w-[100px] pt-[6px] pb-[6px] pl-[8px] pr-[8px] bg-[#ef2950] text-white rounded-lg font-semibold text-su"
+                onClick={() => {
+                  handleFollow();
+                }}
+              >
+                Follow
+              </button>
             </div>
             <div className="flex flex-col p-2">
               <h5 className="font-semibold text-sa">{item.blogID}</h5>
@@ -80,4 +70,4 @@ const InfoUserDropDown = ({ item }) => {
   );
 };
 
-export default InfoUserDropDown;
+export default UnInfoUserDropDown;

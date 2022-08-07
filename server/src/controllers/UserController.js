@@ -86,9 +86,11 @@ class UserController {
       // uid dc lưu trên session
       const tmp1 = parseInt(req.params._id);
       const userFollowing = await User.findOne({ _id: tmp1 });
+      const infoFollowing = await InfoUser.findOne({ uid: tmp1 });
       // uid dc của người được uid session follow
       const tmp2 = parseInt(req.params.uid);
       const userFollowers = await User.findOne({ _id: tmp2 });
+      const infoFollowers = await InfoUser.findOne({ uid: tmp2 });
       // console.log(typeof tmp);
       var ok1 = false;
       for (let i = 0; i < userFollowing.following.length; i++) {
@@ -101,11 +103,15 @@ class UserController {
         const newFollowing = userFollowing.following.filter(
           (item) => item !== tmp2
         );
-        userFollowing.following = newFollowing;
-        userFollowing.save();
+        userFollowing.following = await newFollowing;
+        infoFollowing.following = userFollowing.following.length;
+        await userFollowing.save();
+        infoFollowing.save();
       } else {
-        userFollowing.following.push(tmp2);
-        userFollowing.save();
+        await userFollowing.following.push(tmp2);
+        infoFollowing.following = userFollowing.following.length;
+        await userFollowing.save();
+        infoFollowing.save();
       }
       var ok2 = false;
       for (let i = 0; i < userFollowers.followers.length; i++) {
@@ -115,14 +121,18 @@ class UserController {
         }
       }
       if (ok2 === true) {
-        const newFollowers = userFollowers.followers.filters(
+        const newFollowers = userFollowers.followers.filter(
           (item) => item !== tmp1
         );
-        userFollowers.followers = newFollowers;
-        userFollowers.save();
+        userFollowers.followers = await newFollowers;
+        infoFollowers.follower = userFollowers.followers.length;
+        await userFollowers.save();
+        infoFollowers.save();
       } else {
-        userFollowers.followers.push(tmp1);
-        userFollowers.save();
+        await userFollowers.followers.push(tmp1);
+        infoFollowers.follower = userFollowers.followers.length;
+        await userFollowers.save();
+        infoFollowers.save();
       }
       res.send(`${userFollowers} ${userFollowing}`);
     } catch (error) {
