@@ -6,6 +6,7 @@ const DropdownUser = () => {
   const { show, setShow, nodeRef } = useClickOutSide();
   const handleLogout = () => {
     sessionStorage.removeItem("username");
+    sessionStorage.removeItem("uid");
     window.location.reload();
   };
   function handleTmp() {

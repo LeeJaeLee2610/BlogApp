@@ -8,7 +8,7 @@ const ContentPageStyle = styled.div`
   z-index: 1;
 `;
 
-const ContentPage = () => {
+const ContentHome = () => {
   return (
     <ContentPageStyle>
       <div>OK</div>
@@ -73,4 +73,4 @@ const ContentPage = () => {
   );
 };
 
-export default ContentPage;
+export default ContentHome;

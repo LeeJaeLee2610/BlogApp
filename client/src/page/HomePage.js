@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import ContentPage from "./ContentPage";
-import SideBar from "./SideBar";
+import ContentHome from "../components/layout/ContentHome";
+import SideBar from "../components/layout/SideBar";
 import styled from "styled-components";
 
 const ClearFix = styled.div`
@@ -13,16 +13,16 @@ const MainStyle = styled.div`
   width: 1200px;
 `;
 
-const FollowingPage = () => {
+const HomePage = () => {
   return (
     <Fragment>
       <MainStyle>
         <SideBar></SideBar>
-        <ContentPage></ContentPage>
+        <ContentHome></ContentHome>
         <ClearFix></ClearFix>
       </MainStyle>
     </Fragment>
   );
 };
 
-export default FollowingPage;
+export default HomePage;

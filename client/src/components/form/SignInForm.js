@@ -82,6 +82,8 @@ const SignInForm = ({ handleClose1 = () => {}, handleClose }) => {
             setErrorPass("");
             sessionStorage.setItem("username", res.username);
             sessionStorage.setItem("uid", res._id);
+            localStorage.setItem("username", res.username);
+            localStorage.setItem("username", res._id);
             window.location.reload();
           }
         })

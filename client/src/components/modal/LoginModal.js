@@ -13,10 +13,7 @@ const LoginModal = ({ open = false, handleClose = () => {} }) => {
         open ? "" : "opacity-0 invisible"
       }`}
     >
-      <div
-        className="absolute inset-0 bg-black bg-opacity-20 overlay"
-        onClick={handleClose}
-      ></div>
+      <div className="absolute inset-0 bg-black bg-opacity-20 overlay"></div>
       <div className="modal-content relative w-full bg-white z-10 p-5 rounded-lg max-w-[460px]">
         <span
           className="absolute top-0 right-0 flex items-center justify-center w-10 h-10 p-1 bg-white rounded-full translate-x-2/4 -translate-y-2/4 cursor-pointer"

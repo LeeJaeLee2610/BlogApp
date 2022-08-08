@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import LoginModal from "../modal/LoginModal";
 
-const Unlogin = () => {
+const UnLogin = () => {
   const [showLogin, setShowLogin] = useState(false);
   return (
     <Fragment>
@@ -55,4 +55,4 @@ const Unlogin = () => {
   );
 };
 
-export default Unlogin;
+export default UnLogin;

@@ -1,37 +1,32 @@
 import React, { Fragment } from "react";
 import Header from "./components/header/Header";
 import { Route, Routes } from "react-router-dom";
-import FollowingPage from "./components/layout/FollowingPage";
 import HeaderFull from "./components/header/HeaderFull";
-import ViewProfile from "./components/layout/ViewProfile";
-import Main from "./components/layout/Main";
+import HomePage from "./page/HomePage";
+import ViewProfilePage from "./page/ViewProfilePage";
+import FollowingPage from "./page/FollowingPage";
+import FeaturedArticles from "./page/FeaturedArticles";
 
 const App = () => {
   return (
     <Fragment>
       <Routes>
         <Route element={<Header></Header>}>
-          <Route path="/" element={<Main></Main>}></Route>
+          <Route path="/" element={<HomePage></HomePage>}></Route>
           <Route
             path="/following"
-            element={
-              <>
-                <FollowingPage></FollowingPage>
-              </>
-            }
+            element={<FollowingPage></FollowingPage>}
           ></Route>
-          <Route path="/featured-articles"></Route>
+          <Route
+            path="/featured-articles"
+            element={<FeaturedArticles></FeaturedArticles>}
+          ></Route>
         </Route>
         <Route element={<HeaderFull></HeaderFull>}>
           <Route
             path="/profile"
-            element={
-              <>
-                <ViewProfile></ViewProfile>
-              </>
-            }
+            element={<ViewProfilePage></ViewProfilePage>}
           ></Route>
-          <Route path="/:blogID"></Route>
         </Route>
         <Route path="*"></Route>
       </Routes>
