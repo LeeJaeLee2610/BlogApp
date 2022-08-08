@@ -15,7 +15,7 @@ const InLogSideBar = () => {
       })
       .then((res) => {
         setInfo3SA(res);
-        console.log(res);
+        // console.log("res1 :>> ", res);
       })
       .catch((err) => {
         console.log(err);
@@ -26,7 +26,7 @@ const InLogSideBar = () => {
       })
       .then((res) => {
         setInfo10SA(res);
-        console.log(res);
+        // console.log("res2 :>> ", res);
       })
       .catch((err) => {
         console.log(err);
@@ -37,7 +37,7 @@ const InLogSideBar = () => {
       })
       .then((res) => {
         setInfo3FL(res);
-        console.log(res);
+        // console.log("res3 :>> ", res);
       })
       .catch((err) => {
         console.log(err);
@@ -48,7 +48,7 @@ const InLogSideBar = () => {
       })
       .then((res) => {
         setInfo10FL(res);
-        console.log(res);
+        // console.log("res4 :>> ", res);
       })
       .catch((err) => {
         console.log(err);
@@ -168,7 +168,10 @@ const InLogSideBar = () => {
           <>
             {info3FL.length > 0 &&
               info3FL.map((item) => (
-                <div className="flex flex-row justify-start items-center pl-1 pt-2 pb-2 cursor-pointer hover:bg-[#f8f8f8]">
+                <div
+                  className="flex flex-row justify-start items-center pl-1 pt-2 pb-2 cursor-pointer hover:bg-[#f8f8f8]"
+                  key={item._id}
+                >
                   <img
                     src={`./images/${item.image_path}`}
                     alt=""
@@ -199,7 +202,10 @@ const InLogSideBar = () => {
           <>
             {info10FL.length > 0 &&
               info10FL.map((item) => (
-                <div className="flex flex-row justify-start items-center pl-1 pt-2 pb-2 cursor-pointer hover:bg-[#f8f8f8]">
+                <div
+                  className="flex flex-row justify-start items-center pl-1 pt-2 pb-2 cursor-pointer hover:bg-[#f8f8f8]"
+                  key={item._id}
+                >
                   <img
                     src={`./images/${item.image_path}`}
                     alt=""

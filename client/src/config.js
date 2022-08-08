@@ -5,6 +5,7 @@ export const getApi = {
   getUserByUid: (uid) => `http://localhost:3030/users/getUserByUid/${uid}`,
   getUserByUserName: (username) =>
     `http://localhost:3030/users/getUserByUserName/${username}`,
+  getInfoByUid: (uid) => `http://localhost:3030/info/getInfoByUid/${uid}`,
   get3InfoSA: () => `http://localhost:3030/info/get3infos`,
   get10InfoSA: () => `http://localhost:3030/info/get10infos`,
   get3InfoSA1: (uid) => `http://localhost:3030/info/get3infos1/${uid}`,

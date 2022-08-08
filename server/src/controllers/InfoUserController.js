@@ -56,13 +56,13 @@ class InfoUserController {
 
   // doGet infoSA UnLogin
   async get3InfoSA(req, res) {
-    const infos = await InfoUser.find({}).limit(3);
+    const infos = await InfoUser.find({}).sort({ follower: "-1" }).limit(3);
     res.send(infos);
   }
 
-  // doGet infoSA InLogin
+  // doGet infoSA UnLogin
   async get10InfoSA(req, res) {
-    const infos = await InfoUser.find({}).limit(10);
+    const infos = await InfoUser.find({}).sort({ follower: "-1" }).limit(10);
     res.send(infos);
   }
 
@@ -70,7 +70,7 @@ class InfoUserController {
   async get3InfoSA1(req, res) {
     const user = await User.findOne({ _id: req.params.uid });
     const info = await (
-      await InfoUser.find({}).lean()
+      await InfoUser.find({}).sort({ follower: "-1" })
     ).filter((item) => {
       return item.uid !== parseInt(req.params.uid);
     });
@@ -95,7 +95,7 @@ class InfoUserController {
         results.push(tmp[i]);
       }
     } else {
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 3; i++) {
         results.push(tmp[i]);
       }
     }
@@ -104,12 +104,38 @@ class InfoUserController {
 
   // doGet infoSA InLogin
   async get10InfoSA1(req, res) {
-    const infos = await (
-      await InfoUser.find({}).limit(11)
+    const user = await User.findOne({ _id: req.params.uid });
+    const info = await (
+      await InfoUser.find({}).sort({ follower: "-1" })
     ).filter((item) => {
       return item.uid !== parseInt(req.params.uid);
     });
-    res.send(infos);
+    for (let i = 0; i < user.following.length; i++) {
+      for (let j = 0; j < info.length; j++) {
+        if (info[j].uid === user.following[i]) {
+          info[j] = 1;
+        }
+      }
+    }
+    const tmp = [];
+    const results = [];
+    info
+      .filter((item) => {
+        return item !== 1;
+      })
+      .map((item) => {
+        tmp.push(item);
+      });
+    if (tmp.length < 10) {
+      tmp.map((item) => {
+        results.push(item);
+      });
+    } else {
+      for (let i = 0; i < 10; i++) {
+        results.push(tmp[i]);
+      }
+    }
+    res.send(results);
   }
 
   // doGet InfoFL Inlogin
@@ -134,16 +160,9 @@ class InfoUserController {
   async get10InfoFL(req, res) {
     const user = await User.findOne({ _id: parseInt(req.params.uid) });
     const results = [];
-    if (user.following.length > 10) {
-      for (let i = 0; i < 10; i++) {
-        const info = await InfoUser.findOne({ uid: user.following[i] });
-        results.push(info);
-      }
-    } else {
-      for (let i = 0; i < user.following.length; i++) {
-        const info = await InfoUser.findOne({ uid: user.following[i] });
-        results.push(info);
-      }
+    for (let i = 0; i < user.following.length; i++) {
+      const info = await InfoUser.findOne({ uid: user.following[i] });
+      results.push(info);
     }
     res.send(results);
   }

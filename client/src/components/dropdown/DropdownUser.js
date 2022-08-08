@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import useClickOutSide from "../../hooks/useClickOutSide";
 import { NavLink } from "react-router-dom";
 
@@ -8,14 +8,33 @@ const DropdownUser = () => {
     sessionStorage.removeItem("username");
     window.location.reload();
   };
+  function handleTmp() {
+    setShow(false);
+  }
+
+  const [info, setInfo] = useState({});
+
+  const uid = sessionStorage.getItem("uid");
+  useEffect(() => {
+    fetch(`http://localhost:3030/info/getInfoByUid/${uid}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        setInfo(res);
+      })
+      .catch((err) => console.log(err));
+  }, [uid]);
+
   return (
     <Fragment>
       <div
         className="flex items-center justify-center ml-[16px] w-[32px] h-[32px] relative"
         ref={nodeRef}
+        onMouseOver={() => setShow(true)}
       >
         <img
-          src="../images/1658842290314-282273672_1676657146045001_5848990282228639430_n.jpg"
+          src={`./images/${info.image_path}`}
           alt=""
           className="object-cover w-full h-full rounded-full"
           onClick={() => {
@@ -23,7 +42,10 @@ const DropdownUser = () => {
           }}
         />
         {show && (
-          <div className="absolute top-full right-0 mt-[10px] bg-white p-2 shadow-lg rounded-lg min-w-[220px] border-none outline-none">
+          <div
+            className="absolute top-full right-0 mt-[10px] bg-white p-2 shadow-lg rounded-lg min-w-[220px] border-none outline-none"
+            onMouseOut={() => setTimeout(handleTmp, 3000)}
+          >
             <NavLink
               to="/profile"
               className="p-2 cursor-pointer text-black text-center flex flex-row items-center justify-start hover:bg-[#f8f8f8]"
