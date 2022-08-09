@@ -4,7 +4,7 @@ import styled from "styled-components";
 const SideBarStyle = styled.div`
   position: fixed;
   float: left;
-  width: 20%;
+  width: 15%;
   top: 60px;
   bottom: 0;
   &:hover {

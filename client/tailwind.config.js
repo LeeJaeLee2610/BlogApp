@@ -15,6 +15,7 @@ module.exports = {
       sa: ["14px", "20px"],
       fn: ["12px", "15px"],
       pbi: ["32px", "38px"],
+      lg: ["18px", "25px"],
     },
     extend: {
       colors: {
