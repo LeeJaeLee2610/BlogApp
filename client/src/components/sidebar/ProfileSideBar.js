@@ -115,7 +115,7 @@ const InLogSideBar = () => {
               d="M33 18.5C31.6193 18.5 30.5 19.6193 30.5 21C30.5 22.3807 31.6193 23.5 33 23.5C34.3807 23.5 35.5 22.3807 35.5 21C35.5 19.6193 34.3807 18.5 33 18.5ZM27.5 21C27.5 17.9624 29.9624 15.5 33 15.5C36.0376 15.5 38.5 17.9624 38.5 21C38.5 24.0376 36.0376 26.5 33 26.5C29.9624 26.5 27.5 24.0376 27.5 21Z"
             ></path>
           </svg>
-          <span className="ml-3 font-bold text-btn_login">Following</span>
+          <div className="ml-3 font-bold text-btn_login">Following</div>
         </div>
         <div className="flex flex-row justify-start items-center p-[8px] cursor-pointer hover:bg-[#f8f8f8]">
           <svg
