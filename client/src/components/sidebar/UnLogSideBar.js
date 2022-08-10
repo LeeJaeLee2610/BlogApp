@@ -15,17 +15,17 @@ const UnLogSideBar = () => {
   const [forYou, setForYou] = useState(true);
   const [following, setFollowing] = useState(false);
 
-  function handleForYou() {
-    console.log(forYou);
-    setForYou(true);
-    setFollowing(false);
-  }
+  // function handleForYou() {
+  //   console.log(forYou);
+  //   setForYou(true);
+  //   setFollowing(false);
+  // }
 
-  function handleFollowing() {
-    console.log(following);
-    setForYou(false);
-    setFollowing(true);
-  }
+  // function handleFollowing() {
+  //   console.log(following);
+  //   setForYou(false);
+  //   setFollowing(true);
+  // }
 
   return (
     <Fragment>
@@ -36,12 +36,7 @@ const UnLogSideBar = () => {
       <div className="pt-[15px] pb-[12px]">
         <NavLink
           to="/"
-          className={({ isActive }) =>
-            isActive
-              ? "flex flex-row justify-start items-center p-[8px] cursor-pointer hover:bg-[#f8f8f8] text-[#fe2c55]"
-              : "flex flex-row justify-start items-center p-[8px] cursor-pointer hover:bg-[#f8f8f8]"
-          }
-          onClick={handleForYou}
+          className="flex flex-row justify-start items-center p-[8px] cursor-pointer hover:bg-[#f8f8f8]"
         >
           {forYou ? (
             <>
@@ -88,7 +83,6 @@ const UnLogSideBar = () => {
               ? "flex flex-row justify-start items-center p-[8px] cursor-pointer hover:bg-[#f8f8f8] text-[#fe2c55]"
               : "flex flex-row justify-start items-center p-[8px] cursor-pointer hover:bg-[#f8f8f8]"
           }
-          onClick={handleFollowing}
         >
           <svg
             width="32"

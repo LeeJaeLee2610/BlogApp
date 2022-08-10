@@ -134,7 +134,7 @@ class UserController {
         await userFollowers.save();
         infoFollowers.save();
       }
-      res.send(`${userFollowers} ${userFollowing}`);
+      res.send(req.body);
     } catch (error) {
       console.log(error);
     }

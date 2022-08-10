@@ -3,13 +3,49 @@ import React, { Fragment, useState } from "react";
 const InfoUserDropDown = ({ item }) => {
   const [showInfoUser, setShowInfoUser] = useState(false);
   const [following, setFollowing] = useState(false);
-  function handleFollow() {
+  function handleFollow(uid) {
     setFollowing(true);
-    console.log("Following");
+    fetch(
+      `http://localhost:3030/users/updateFollow/${sessionStorage.getItem(
+        "uid"
+      )}/${uid}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ following: "OK" }),
+      }
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        console.log(res);
+      });
+    // .catch((err) => {
+    //   console.log(err);
+    // });
   }
-  function handleFollowing() {
+  function handleFollowing(uid) {
     setFollowing(false);
-    console.log("Follow");
+    fetch(
+      `http://localhost:3030/users/updateFollow/${sessionStorage.getItem(
+        "uid"
+      )}/${uid}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ unfollow: "OK" }),
+      }
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        console.log(res);
+      });
+    // .catch((err) => {
+    //   console.log(err);
+    // });
   }
   return (
     <Fragment>
@@ -45,7 +81,7 @@ const InfoUserDropDown = ({ item }) => {
                 <button
                   className="min-w-[99px] pt-[5px] pb-[5px] pl-[8px] pr-[8px] border border-[#888888] rounded-lg text-black bg-transparent font-semibold outline-none"
                   onClick={() => {
-                    handleFollowing();
+                    handleFollowing(item.uid);
                   }}
                 >
                   Following
@@ -54,7 +90,7 @@ const InfoUserDropDown = ({ item }) => {
                 <button
                   className="min-w-[100px] pt-[6px] pb-[6px] pl-[8px] pr-[8px] bg-[#ef2950] text-white rounded-lg font-semibold text-su"
                   onClick={() => {
-                    handleFollow();
+                    handleFollow(item.uid);
                   }}
                 >
                   Follow
