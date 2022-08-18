@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import ContentHome from "../components/layout/ContentHome";
-import SideBar from "../components/layout/SideBar";
+import SideBar from "../components/sidebar/SideBar";
 import styled from "styled-components";
 
 const ClearFix = styled.div`

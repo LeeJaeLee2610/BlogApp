@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import UnLogSideBar from "../sidebar/UnLogSideBar";
+import UnLogSideBar from "./UnLogSideBar";
 import styled from "styled-components";
-import InLogSideBar from "../sidebar/InLogSideBar";
+import InLogSideBar from "./InLogSideBar";
 
 const SideBarStyle = styled.div`
   position: fixed;

@@ -2,7 +2,10 @@ const mongoose = require("mongoose");
 const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 const Article = mongoose.Schema({
-  image_path: { type: String, default: null },
+  files: {
+    file_name: { type: String, default: null },
+    ext_name: { type: String, default: null },
+  },
   title: { type: String },
   hashtag: { type: String },
   cmts: [
