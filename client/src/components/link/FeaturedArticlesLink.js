@@ -1,16 +1,16 @@
 import React, { Fragment, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const FeaturedArticles = () => {
+const FeaturedArticlesLink = () => {
   const [hot, setHot] = useState(false);
   return (
     <Fragment>
       <NavLink
         to="/featured-articles"
-        className="flex flex-row justify-start items-center p-[8px] cursor-pointer hover:bg-[#f8f8f8]"
+        className={({ isActive }) => (isActive ? setHot(true) : setHot(false))}
       >
         {hot ? (
-          <>
+          <div className="flex flex-row justify-start items-center p-[8px] cursor-pointer hover:bg-[#f8f8f8]">
             <svg
               width="32"
               height="32"
@@ -27,9 +27,9 @@ const FeaturedArticles = () => {
             <div className="ml-3 font-bold text-btn_login text-[#fe2c55]">
               Featured Articles
             </div>
-          </>
+          </div>
         ) : (
-          <>
+          <div className="flex flex-row justify-start items-center p-[8px] cursor-pointer hover:bg-[#f8f8f8]">
             <svg
               width="32"
               height="32"
@@ -47,11 +47,11 @@ const FeaturedArticles = () => {
             <div className="ml-3 font-bold text-btn_login">
               Featured Articles
             </div>
-          </>
+          </div>
         )}
       </NavLink>
     </Fragment>
   );
 };
 
-export default FeaturedArticles;
+export default FeaturedArticlesLink;

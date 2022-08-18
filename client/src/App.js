@@ -17,12 +17,12 @@ const App = () => {
             path="/following"
             element={<FollowingPage></FollowingPage>}
           ></Route>
+        </Route>
+        <Route element={<HeaderFull></HeaderFull>}>
           <Route
             path="/featured-articles"
             element={<FeaturedArticles></FeaturedArticles>}
           ></Route>
-        </Route>
-        <Route element={<HeaderFull></HeaderFull>}>
           <Route
             path="/profile"
             element={<ViewProfilePage></ViewProfilePage>}

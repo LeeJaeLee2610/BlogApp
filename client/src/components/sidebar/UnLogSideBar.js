@@ -1,9 +1,8 @@
 import React, { Fragment, useState } from "react";
-import { NavLink } from "react-router-dom";
 import useSWR from "swr";
 import { fetcher, getApi } from "../../config";
 import UnInfoUserDropDown from "../dropdown/UnInfoUserDropDown";
-import FeaturedArticles from "../link/FeaturedArticles";
+import FeaturedArticlesLink from "../link/FeaturedArticlesLink";
 import FollowingLink from "../link/FollowingLink";
 import ForYouLink from "../link/ForYouLink";
 import LoginModal from "../modal/LoginModal";
@@ -24,7 +23,7 @@ const UnLogSideBar = () => {
       <div className="pt-[15px] pb-[12px]">
         <ForYouLink></ForYouLink>
         <FollowingLink></FollowingLink>
-        <FeaturedArticles></FeaturedArticles>
+        <FeaturedArticlesLink></FeaturedArticlesLink>
       </div>
       <div className="border-t border-[#f1f1f2] pt-[20px] pb-[20px] border-b mx-auto my-auto mr-2 ml-2">
         <span className="text-[#8a8B91] text-base text-left">
