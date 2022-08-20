@@ -1,13 +1,12 @@
 import React, { Fragment, useState } from "react";
 import useSWR from "swr";
 import { fetcher, getApi } from "../../config";
-import UnInfoUserDropDown from "../dropdown/UnInfoUserDropDown";
 import FeaturedArticlesLink from "../link/FeaturedArticlesLink";
 import FollowingLink from "../link/FollowingLink";
 import ForYouLink from "../link/ForYouLink";
 import LoginModal from "../modal/LoginModal";
 
-const UnLogSideBar = () => {
+const UnLogFASideBar = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [see, setSee] = useState(true);
 
@@ -44,10 +43,26 @@ const UnLogSideBar = () => {
           <>
             {infos3SA &&
               infos3SA.map((item) => (
-                <UnInfoUserDropDown
+                <div
+                  className="flex flex-row justify-start items-center pl-1 pt-2 pb-2 cursor-pointer hover:bg-[#f8f8f8]"
                   key={item._id}
-                  item={item}
-                ></UnInfoUserDropDown>
+                >
+                  <img
+                    src={`./images/${item.image_path}`}
+                    alt=""
+                    className="w-[32px] h-[32px] object-cover rounded-full"
+                  />
+                  <div className="ml-[20px]">
+                    <div className="flex flex-row items-center font-semibold text-base overflow-hidden">
+                      {item.blogID}
+                    </div>
+                    <p className="text-sac text-fn">
+                      {item.firstname
+                        ? `${item.firstname} ${item.lastname}`
+                        : ""}
+                    </p>
+                  </div>
+                </div>
               ))}
             <span
               className="cursor-pointer text-[#fe2c55] pl-1"
@@ -62,10 +77,26 @@ const UnLogSideBar = () => {
           <>
             {infos10SA &&
               infos10SA.map((item) => (
-                <UnInfoUserDropDown
+                <div
+                  className="flex flex-row justify-start items-center pl-1 pt-2 pb-2 cursor-pointer hover:bg-[#f8f8f8]"
                   key={item._id}
-                  item={item}
-                ></UnInfoUserDropDown>
+                >
+                  <img
+                    src={`./images/${item.image_path}`}
+                    alt=""
+                    className="w-[32px] h-[32px] object-cover rounded-full"
+                  />
+                  <div className="ml-[20px]">
+                    <div className="flex flex-row items-center font-semibold text-base overflow-hidden">
+                      {item.blogID}
+                    </div>
+                    <p className="text-sac text-fn">
+                      {item.firstname
+                        ? `${item.firstname} ${item.lastname}`
+                        : ""}
+                    </p>
+                  </div>
+                </div>
               ))}
             <span
               className="cursor-pointer text-[#fe2c55] pl-1"
@@ -175,4 +206,4 @@ const UnLogSideBar = () => {
   );
 };
 
-export default UnLogSideBar;
+export default UnLogFASideBar;

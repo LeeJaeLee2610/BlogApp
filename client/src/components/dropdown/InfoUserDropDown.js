@@ -70,7 +70,7 @@ const InfoUserDropDown = ({ item }) => {
           </div>
         </div>
         {showInfoUser && (
-          <div className="absolute z-10 bg-white min-w-[300px] border rounded-lg shadow-md left-10">
+          <div className="absolute z-30 bg-white min-w-[300px] border rounded-lg shadow-md left-10">
             <div className="flex flex-row justify-between items-center pt-2 pl-2 pr-2">
               <img
                 src={`./images/${item.image_path}`}

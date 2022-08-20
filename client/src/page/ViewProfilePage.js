@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
-import ProfileSideBar from "../components/sidebar/ProfileSideBar";
 import ContentProfile from "../components/layout/ContentProfile";
+import ProfileSideBar from "../components/sidebar/ProfileSideBar";
 
 const Profile = styled.div`
   margin-left: auto;

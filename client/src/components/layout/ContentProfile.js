@@ -14,13 +14,13 @@ const ContentProfileStyle = styled.div`
 const ContentProfile = () => {
   function handleMOVideos() {
     const tmp = document.querySelector(".truot");
-    console.log(tmp);
+    // console.log(tmp);
     tmp.style.transform = "translateX(0%)";
     tmp.style.transition = "all 0.5s";
   }
   function handleMOLiked() {
     const tmp = document.querySelector(".truot");
-    console.log(tmp);
+    // console.log(tmp);
     tmp.style.transform = "translateX(100%)";
     tmp.style.transition = "all 0.5s";
   }
