@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UnLogSideBar from "./UnLogSideBar";
 import styled from "styled-components";
-import InLogSideBar from "./InLogSideBar";
+import InLogProfileSideBar from "./InLogProfileSideBar";
 
 const SideBarStyle = styled.div`
   position: fixed;
@@ -65,7 +65,7 @@ const SideBarFull = () => {
       {showUnLog ? (
         <UnLogSideBar></UnLogSideBar>
       ) : (
-        <InLogSideBar></InLogSideBar>
+        <InLogProfileSideBar></InLogProfileSideBar>
       )}
     </SideBarStyle>
   );
