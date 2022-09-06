@@ -16,6 +16,7 @@ module.exports = {
       fn: ["12px", "15px"],
       pbi: ["32px", "38px"],
       lg: ["18px", "25px"],
+      name: ["14px", "28px"],
     },
     extend: {
       colors: {

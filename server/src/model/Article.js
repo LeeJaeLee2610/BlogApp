@@ -7,7 +7,7 @@ const Article = mongoose.Schema({
     ext_name: { type: String, default: null },
   },
   title: { type: String },
-  hashtag: { type: String },
+  hashtag: [],
   cmts: [
     {
       uid: { type: Number },

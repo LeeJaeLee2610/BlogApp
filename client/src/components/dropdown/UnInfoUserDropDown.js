@@ -1,9 +1,20 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import LoginModal from "../modal/LoginModal";
 
 const UnInfoUserDropDown = ({ item }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showInfoUser, setShowInfoUser] = useState(false);
+  const [coords, setCoords] = useState({});
+  const nodeRef = useRef(null);
+
+  function handleMouseOver() {
+    setShowInfoUser(true);
+    if (nodeRef.current) {
+      setCoords(nodeRef.current.getBoundingClientRect());
+      console.log(nodeRef.current.getBoundingClientRect());
+      console.log(coords);
+    }
+  }
 
   function handleFollow() {
     setShowLogin(true);
@@ -16,8 +27,9 @@ const UnInfoUserDropDown = ({ item }) => {
       ></LoginModal>
       <div
         className="relative cursor-pointer hover:bg-[#f8f8f8]"
-        onMouseOver={() => setShowInfoUser(true)}
+        onMouseOver={() => handleMouseOver()}
         onMouseOut={() => setShowInfoUser(false)}
+        ref={nodeRef}
       >
         <div className="flex flex-row justify-start items-center pl-1 pt-2 pb-2">
           <img
@@ -35,7 +47,9 @@ const UnInfoUserDropDown = ({ item }) => {
           </div>
         </div>
         {showInfoUser && (
-          <div className="absolute z-10 bg-white min-w-[300px] border rounded-lg shadow-md left-10">
+          <div
+            className={`absolute z-10 bg-white min-w-[300px] border rounded-lg shadow-md left-[40px]`}
+          >
             <div className="flex flex-row justify-between items-center pt-2 pl-2 pr-2">
               <img
                 src={`./images/${item.image_path}`}

@@ -38,7 +38,7 @@ const UnLogFASideBar = () => {
         </button>
       </div>
       <div className="pt-[16px] pb-[16px]">
-        <p className="text-sa text-sac pl-2 pb-4">Suggested accounts</p>
+        <p className="text-sa text-sac pl-2 pb-4">Suggested hosts</p>
         {see ? (
           <>
             {infos3SA &&

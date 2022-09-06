@@ -13,3 +13,5 @@ export const getApi = {
   get3InfoFL: (uid) => `http://localhost:3030/info/get3infoFL/${uid}`,
   get10InfoFL: (uid) => `http://localhost:3030/info/get10infoFL/${uid}`,
 };
+
+// export const user_tmp = document.querySelector(".user").getBoundingClientRect();

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import ContentHome from "../components/layout/ContentHome";
-import SideBar from "../components/sidebar/SideBar";
 import styled from "styled-components";
+import ForYouSideBar from "../components/sidebar/ForYouSideBar";
 
 const ClearFix = styled.div`
   clear: both;
@@ -17,7 +17,7 @@ const HomePage = () => {
   return (
     <Fragment>
       <MainStyle>
-        <SideBar></SideBar>
+        <ForYouSideBar></ForYouSideBar>
         <ContentHome></ContentHome>
         <ClearFix></ClearFix>
       </MainStyle>

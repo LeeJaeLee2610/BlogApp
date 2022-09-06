@@ -44,7 +44,7 @@ const SideBarStyle = styled.div`
   touch-action: auto;
 `;
 
-const SideBar = () => {
+const ForYouSideBar = () => {
   const [showUnLog, setShowUnLog] = useState(true);
   useEffect(() => {
     fetch(
@@ -61,6 +61,9 @@ const SideBar = () => {
       .catch((err) => {
         setShowUnLog(true);
       });
+    // if (nodeRef.current) {
+    //   console.log(nodeRef.current.getBoundingClientRect());
+    // }
   });
   return (
     <SideBarStyle>
@@ -73,4 +76,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default ForYouSideBar;

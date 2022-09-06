@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
 import ContentFollowing from "../components/layout/ContentFollowing";
-import SideBar from "../components/sidebar/SideBar";
+import ForYouSideBar from "../components/sidebar/ForYouSideBar";  
 
 const ClearFix = styled.div`
   clear: both;
@@ -17,7 +17,7 @@ const FollowingPage = () => {
   return (
     <Fragment>
       <MainStyle>
-        <SideBar></SideBar>
+        <ForYouSideBar></ForYouSideBar>
         <ContentFollowing></ContentFollowing>
         <ClearFix></ClearFix>
       </MainStyle>
