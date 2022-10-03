@@ -25,7 +25,7 @@ app.use(
     resave: true,
     saveUninitialized: true,
     cookie: { secure: false, httpOnly: true, maxAge: 60 * 60 * 24 },
-  })
+  }),
 );
 
 // app.get("/setSession", (req, res) => {

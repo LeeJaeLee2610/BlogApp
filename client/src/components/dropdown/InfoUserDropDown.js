@@ -7,18 +7,18 @@ const InfoUserDropDown = ({ item }) => {
     setFollowing(true);
     fetch(
       `http://localhost:3030/users/updateFollow/${sessionStorage.getItem(
-        "uid"
+        "uid",
       )}/${uid}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ following: "OK" }),
-      }
+      },
     )
-      .then((res) => {
+      .then(res => {
         return res.json();
       })
-      .then((res) => {
+      .then(res => {
         console.log(res);
       });
     // .catch((err) => {
@@ -29,18 +29,18 @@ const InfoUserDropDown = ({ item }) => {
     setFollowing(false);
     fetch(
       `http://localhost:3030/users/updateFollow/${sessionStorage.getItem(
-        "uid"
+        "uid",
       )}/${uid}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ unfollow: "OK" }),
-      }
+      },
     )
-      .then((res) => {
+      .then(res => {
         return res.json();
       })
-      .then((res) => {
+      .then(res => {
         console.log(res);
       });
     // .catch((err) => {

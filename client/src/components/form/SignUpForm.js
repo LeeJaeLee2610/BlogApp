@@ -66,10 +66,10 @@ const SignUpForm = ({ handleClose2 = () => {} }) => {
     }
     if (ok) {
       fetch("http://localhost:3030/users/getAllUsers")
-        .then((res) => {
+        .then(res => {
           return res.json();
         })
-        .then((data) => {
+        .then(data => {
           var ok1 = true;
           for (let i = 0; i < data.length; i++) {
             if (data[i].username === values.username) {
@@ -88,10 +88,10 @@ const SignUpForm = ({ handleClose2 = () => {} }) => {
               },
               body: JSON.stringify(values),
             })
-              .then((res) => {
+              .then(res => {
                 return res.json();
               })
-              .then((data) => {
+              .then(data => {
                 alert(`Dang ki thanh cong tai khoan ${data.username}`);
                 window.location.reload();
               });

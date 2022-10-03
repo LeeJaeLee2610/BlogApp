@@ -11,7 +11,7 @@ const User = mongoose.Schema(
     followers: { type: [], default: null },
     likes: { type: [], default: null },
   },
-  { _id: false }
+  { _id: false },
 );
 
 User.plugin(AutoIncre);
